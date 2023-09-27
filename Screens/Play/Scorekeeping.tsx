@@ -3,14 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, StyleSheet, TextInput, TouchableWithoutFeedback } from 'react-native';
 import { SafeAreaView, Text, View } from 'react-native';
 import { Divider } from 'react-native-paper';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { preload } from 'swr';
 import AdvancedStatsButtons from '../../Components/AdvancedStatsButtons';
 import { Button } from '../../Components/Button';
 import { useScore } from '../../Context/ScoreContext';
-import { useAuth } from '../../Context/UserContext';
-import { useFetch } from '../../HelperFunctions/dataHook';
-import customFetch from '../../HelperFunctions/request';
 import { PlayStackNavigation } from '../../types';
 
 type Props = NativeStackScreenProps<PlayStackNavigation, "Scorekeeping">

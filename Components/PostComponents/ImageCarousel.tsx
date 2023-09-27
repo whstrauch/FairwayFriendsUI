@@ -39,6 +39,7 @@ const ImageCarousel = ({media, ratio}: {media: any, ratio: number}) => {
         <View style={{ width: '100%', alignItems: 'center'}}>
             <FlatList 
                 horizontal={true}
+                maxToRenderPerBatch={5}
                 snapToAlignment='end'
                 pagingEnabled
                 showsHorizontalScrollIndicator={false}

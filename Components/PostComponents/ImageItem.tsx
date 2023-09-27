@@ -25,9 +25,14 @@ const ImageItem = ({item, ratio} : Props)  => {
     const {isLoading, data} = useSWR(() => "http://localhost:5000/post/media/" + item.path, fetch)
 
     return (
-        <View style={{justifyContent: 'flex-start', width: width, backgroundColor: 'blue'}}>
+        <View style={{justifyContent: 'flex-start', width: width, backgroundColor: '#f0f0f0'}}>
             {/* <Text>skjdlfajsdflakjsdflakjsskjaskfjdlakkajfdlasflasjdaf;lakjsdlfjadflksj</Text> */}
-            {isLoading || data === undefined ? <ActivityIndicator/> : <Image resizeMode={item.height > item.width ? "cover" : "contain"} width={width} height={height} source={data} style={{width: width, height: height}} />}
+            {isLoading || data === undefined ? 
+                <View style={{justifyContent: 'center', alignItems: 'center', width: width, height: height}}>
+                    <ActivityIndicator size={"large"}/>
+                </View> 
+                : 
+                <Image resizeMode={item.height > item.width ? "cover" : "contain"} width={width} height={height} source={data} style={{width: width, height: height}} />}
         </View>
     );
 };

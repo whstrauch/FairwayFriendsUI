@@ -28,9 +28,13 @@ export type MainTabNavigation = {
 export type HomeStackNavigation = {
     Home: undefined;
     Comments: {
-        inputFocused: Boolean
+        inputFocused: Boolean;
+        comments: Array<any>;
+        postId: number;
     };
-    Likes: undefined
+    Likes: {
+        likes: Array<any>;
+    }
     PlayingGroup: undefined;
     Notification2: undefined
     Profile: {
@@ -38,6 +42,18 @@ export type HomeStackNavigation = {
         main_user: boolean;
     }
 
+}
+
+export type FindStackNavigation = {
+    Find: undefined;
+    Profile: {
+        user_id: string | number;
+        main_user: boolean;
+    };
+    FollowingList: {
+        type: string
+        user_id: string | number
+    };
 }
 
 export type AccountStackNavigation = {
@@ -50,9 +66,13 @@ export type AccountStackNavigation = {
         user_id: string | number
     };
     Comments: {
-        inputFocused: Boolean
+        inputFocused: Boolean;
+        comments: Array<any>;
+        postId: number;
     };
-    Likes: undefined
+    Likes: {
+        likes: Array<any>;
+    }
     PlayingGroup: undefined;
     Notifications: undefined
     EditProfile: {
@@ -96,12 +116,10 @@ export type PlayStackNavigation = {
 }
 
 export type CommentType = {
-    comment: {
         id: string;
         name: string;
-        body: string;
+        comment: string;
         timestamp: string
-    }
 }
 
 export type LikeType = {
@@ -115,7 +133,7 @@ export type LikeType = {
 
 export type UserType = {
     user: {
-        id: string;
+        user_id: string;
         name: string;
         username: string;
         status?: string;

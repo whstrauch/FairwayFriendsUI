@@ -35,7 +35,7 @@ const PostRound = ({route, navigation}: Props) => {
     const {user} = useAuth()
     const [loading, setLoading] = useState(false)
 
-    const tabNavigation = navigation.getParent('Tabs') // TS Error from reactnative navigation
+    const tabNavigation = navigation.getParent('Tabs') // TS Error from react navigation
 
     useEffect(() => {
         navigation.setOptions({
@@ -44,9 +44,9 @@ const PostRound = ({route, navigation}: Props) => {
     }, [navigation])
 
 
-    const removeTag = (value: string) => {
+    const removeTag = (friend: friend) => {
         // change to id when plumbed up
-        setTaggedFriends(taggedFriends.filter(friend => friend.user_id !== value))
+        setTaggedFriends(taggedFriends.filter(item => item.user_id !== friend.user_id))
     }
 
     const addTag = (friend: friend) => {
@@ -113,9 +113,15 @@ const PostRound = ({route, navigation}: Props) => {
         }
         data.append("size[]", size)
         console.log(taggedFriends)
+        let tags = []
         for (let i = 0; i < taggedFriends.length; i++) {
-            data.append("taggedFriends[]", taggedFriends[i].user_id)
+            tags.push([
+                taggedFriends[i].user_id,
+                taggedFriends[i].name
+            ])
         }
+
+        data.append("taggedFriends[]", tags)
 
         data.append("user", user.user_id)
         data.append("score", score.userScore)

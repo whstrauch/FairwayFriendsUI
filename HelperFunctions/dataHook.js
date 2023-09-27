@@ -4,7 +4,7 @@ import useSWR from 'swr';
 
 export const useFetch = (path, method="POST", body, token="", condition=true) => {
 
-    const {data, error, isLoading, mutate } = useSWR(condition ? [path, method, body, token] : null, ([path, method, body, token]) => customFetch(path, method, body, token))
+    const {data, error, isLoading, mutate } = useSWR([path, method, body, token], ([path, method, body, token]) => customFetch(path, method, body, token))
     return { isLoading, data, error, mutate };
   };
 

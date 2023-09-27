@@ -10,7 +10,6 @@ type Props = {
 
 const AnimatedHeartButton = (props: Props) => {
     const animatedValue = useRef(new Animated.Value(1)).current;
-    const [liked, setLiked] = useState<Boolean>(props.liked ? props.liked : false);
   
     const handleLikePress = () => {
         Animated.spring(animatedValue, {
@@ -24,7 +23,6 @@ const AnimatedHeartButton = (props: Props) => {
             useNativeDriver: true,
           }).start();
         })
-      setLiked(!liked)
       props.onPress()
     };
     
@@ -36,8 +34,8 @@ const AnimatedHeartButton = (props: Props) => {
     return (
       <Pressable onPress={handleLikePress} style={props.style}>
         <Animated.View style={[animatedHeartStyle, {flexDirection: 'row', alignItems: 'center'}]}>
-          <Icon name={liked ? 'ios-heart' : 'ios-heart-outline'} size={25} color={liked ? '#006B54' : 'black'} />
-          <Text> {liked ? ' Liked' : ' Like'}</Text>
+          <Icon name={props.liked ? 'ios-heart' : 'ios-heart-outline'} size={25} color={props.liked ? '#006B54' : 'black'} />
+          <Text> {props.liked ? ' Liked' : ' Like'}</Text>
         </Animated.View>
       </Pressable>
     );

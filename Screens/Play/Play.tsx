@@ -21,8 +21,9 @@ const CourseItem = ({course}: any) => {
     const navigation = useNavigation<NativeStackNavigationProp<PlayStackNavigation>>()
 
     return(
-        <Pressable style={{height: 50, justifyContent: 'center', marginLeft: 10}} onPress={() => navigation.navigate("SetUpRound", {course: course})}>
-            <Text>{course.course_name}</Text>
+        <Pressable style={{padding: 10, minHeight: 50, justifyContent: 'center', marginLeft: 10}} onPress={() => navigation.navigate("SetUpRound", {course: course})}>
+            <Text>{course.facility_name} {course.course_name !== course.facility_name ? `- ${course.course_name}` : ""}</Text>
+            <Text style={{color: "gray", fontSize: 10}}>{course.course_city}, {course.course_state}</Text>
         </Pressable>
     )
 }

@@ -23,12 +23,23 @@ const Account = ({route, navigation} : Props) => {
     const [refreshing, setRefreshing] = useState(false)
     const id = route.params?.user_id || user.user_id
     const { isLoading, error, user: fetchedUser, mutate } = useUser(id, user.jwt)
-    const { isLoading: isLoading2, data: isFollowing } = useFetch(`user/following/${user.user_id}/${user.user_id}`, "GET", undefined, user.jwt, id != user.user_id)
+    // const { isLoading: isLoading2, data: isFollowing } = useSWR(() => [`/user/isfollowing/${fetchedUser.user_id}/${user.user_id}`, user.jwt] , ([url, token]) => customFetch(url, "GET", undefined, token))
     // Adjust to fetch image from blob storage. Will be much easier, just fetch from url.
     const {isLoading: profilePictureLoading, data: profPic} = useSWR(() => "http://localhost:5000/user/profile_pic/" + fetchedUser.profile_pic, fetch)
     const {isLoading: feedLoading, data: posts, mutate: userPostsMutate} = useFetch(`post/user/${id}`, "GET", undefined, user.jwt)
-    
-    const data: Array<Post>=[]
+    const [status, setStatus] = useState("new")
+
+
+    useEffect(() => {
+        
+        if (fetchedUser !== undefined) {
+            console.log(fetchedUser, user.user_id)
+            customFetch(`user/isfollowing/${fetchedUser.user_id}/${user.user_id}`, "GET", undefined, user.jwt).then(res =>
+                setStatus(res.status)
+            )
+        }
+    }, [fetchedUser])
+
 
     const refresh = () => {
         setRefreshing(true);
@@ -40,15 +51,15 @@ const Account = ({route, navigation} : Props) => {
 
     return(
         <SafeAreaView style={styles.container}>
-            {isLoading || isLoading2 || profilePictureLoading ?  <Loading /> :
+            {isLoading || profilePictureLoading ?  <Loading /> :
             <FlatList 
                 ref={ref}
                 data={posts}
-                renderItem={({item, index}) => <Post post={item} user={{id: String(item.poster_id), username: fetchedUser.username, name: fetchedUser.name, profile_pic: fetchedUser.prof_pic}} key={index}/>}
+                renderItem={({item, index}) => <Post post={item} user={fetchedUser} key={index}/>}
                 refreshing={refreshing}
                 onRefresh={() => refresh()}
                 ItemSeparatorComponent={() => <View style={{height: 10}}/>}
-                ListHeaderComponent={<AccountHeader user={fetchedUser} mainUser={user} isMain={id == user.user_id} following={isFollowing} profPic={profPic}/>}
+                ListHeaderComponent={<AccountHeader user={fetchedUser} mainUser={user} isMain={id == user.user_id} isFollowing={status} profPic={profPic}/>}
                 ListFooterComponent={posts?.length === 0 ? 
                     <View style={{height: 150, justifyContent: 'center', alignItems: 'center'}}>
                         <Text>Create your first post in the Play tab</Text>

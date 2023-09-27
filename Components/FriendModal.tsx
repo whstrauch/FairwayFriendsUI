@@ -14,7 +14,7 @@ type friend = {
     username: string;
 }
 
-const FriendModal = (props: { modalVisible: boolean; setModalVisible: (arg0: boolean) => void; addTag: (arg0: any) => void; taggedFriends: (friend)[]; removeTag: (arg0: string) => void; }) => {
+const FriendModal = (props: { modalVisible: boolean; setModalVisible: (arg0: boolean) => void; addTag: (arg0: any) => void; taggedFriends: (friend)[]; removeTag: (arg0: any) => void; }) => {
 
     const {user} = useAuth()
     const [friendSearch, setFriendSearch] = useState("")
@@ -44,12 +44,21 @@ const FriendModal = (props: { modalVisible: boolean; setModalVisible: (arg0: boo
         }
     }
 
+    const tagToggle = (item: { user_id: string; }) => {
+        if (props.taggedFriends.some(friend => friend.user_id == item.user_id)) {
+            props.removeTag(item)
+        } else {
+            props.addTag(item)
+        }
+    }
+
     useEffect(() => {
         if (friendSearch !== "") {
             const params = new URLSearchParams({
                 query: friendSearch
             })
            
+            params.append("main_id", user.user_id)
             params.append("page", "1")
             
             customFetch(URL + params, "GET", undefined, user.jwt).then(data =>
@@ -80,14 +89,16 @@ const FriendModal = (props: { modalVisible: boolean; setModalVisible: (arg0: boo
                             style={{width: '100%'}}
                             renderItem={({item}) => 
                                 <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-                                    <UserRow user={{id: item.user_id, name: item.name, username: item.username}} type='add'/>           
-                                    <Pressable style={styles.addButton} onPress={() => props.addTag(item)}>
-                                        <Text style={{color: '#006B54'}}>Add</Text>
+                                    <UserRow user={item} type='add'/>           
+                                    <Pressable style={[styles.addButton, {backgroundColor: !props.taggedFriends.some(friend => friend.user_id == item.user_id) ? "#006B54" : "white"}]} onPress={() => tagToggle(item)}>
+                                        <Text style={{color: !props.taggedFriends.some(friend => friend.user_id == item.user_id) ? "white" : "#006B54" }}>{props.taggedFriends.some(friend => friend.user_id == item.user_id) ? "Remove" : "Add"}</Text>
                                     </Pressable>
                                 </View>
                                     
                                 }
+                            
                             ItemSeparatorComponent={Divider}
+                            stickyHeaderIndices={[0]}
                             ListHeaderComponent={
                             <>
                                 <View style={styles.chipContainer}>
@@ -143,8 +154,9 @@ const styles = StyleSheet.create({
       chipContainer: {
           flexDirection: 'row',
           flexWrap: 'wrap',
-          width: '90%',
-          margin: 5,
+          backgroundColor: 'white',
+          width: '100%',
+          padding: 5,
           alignItems: 'flex-start'
       },
       chip: {
