@@ -7,8 +7,8 @@ const Tagged = () => {
     return (
         <SafeAreaView style={{height: '100%'}}>
             <FlatList
-                data={[]}
-                renderItem={({item}) => <UserRow type='like' user={{id: item.user_id, name: item.name, username: item.username}} is_following={item.is_following} timestamp={item.timestamp}/>}
+                data={null}
+                renderItem={({item}) => <UserRow type='like' user={{user_id: item.user_id, name: item.name, username: item.username, profile_pic: item.prof_pic}} is_following={item.is_following} timestamp={item.timestamp}/>}
                 ItemSeparatorComponent={() => <Divider horizontalInset={true}/>}
             />
         </SafeAreaView>

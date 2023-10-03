@@ -35,7 +35,7 @@ const PostRound = ({route, navigation}: Props) => {
     const {user} = useAuth()
     const [loading, setLoading] = useState(false)
 
-    const tabNavigation = navigation.getParent('Tabs') // TS Error from react navigation
+    const tabNavigation = navigation.getParent("Tabs") // TS Error from react navigation
 
     useEffect(() => {
         navigation.setOptions({

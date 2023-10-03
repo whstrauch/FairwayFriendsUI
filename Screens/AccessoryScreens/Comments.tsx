@@ -30,7 +30,6 @@ const Comments = ({route}: Props) => {
     const {isLoading, data} = useFetch("user/users", "POST", {"users": users}, mainUser.jwt)
 
 
-    console.log("USERS", users, data)
     // Get list of comments and display
     useEffect(() => {
         if (route.params.inputFocused) {
@@ -69,7 +68,7 @@ const Comments = ({route}: Props) => {
                     keyExtractor={item => item.id}
                     ItemSeparatorComponent={() => <Divider horizontalInset={true}/>}
                 />}
-                <View style={{flexDirection:'row', paddingVertical: 5, marginLeft: 5, backgroundColor: 'white', alignItems: 'flex-end', borderTopWidth: 0.2,  borderColor: 'rgb(209, 209, 214)'}}>
+                <View style={{flexDirection:'row', paddingVertical: 5, paddingLeft: 5, backgroundColor: 'white', alignItems: 'flex-end', borderTopWidth: 0.2,  borderColor: 'rgb(209, 209, 214)'}}>
                     {/* <Icon name='person-circle' size={40} /> */}
                     <TextInput 
                         ref={textRef}

@@ -18,9 +18,6 @@ const ImageItem = ({item, ratio} : Props)  => {
     const width = Dimensions.get('window').width
     // height / width * screen width to get height
     const height = ratio * width
-    
-    console.log(width, height)
-    console.log(item.path, item)
 
     const {isLoading, data} = useSWR(() => "http://localhost:5000/post/media/" + item.path, fetch)
 

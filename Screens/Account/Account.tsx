@@ -62,7 +62,7 @@ const Account = ({route, navigation} : Props) => {
                 ListHeaderComponent={<AccountHeader user={fetchedUser} mainUser={user} isMain={id == user.user_id} isFollowing={status} profPic={profPic}/>}
                 ListFooterComponent={posts?.length === 0 ? 
                     <View style={{height: 150, justifyContent: 'center', alignItems: 'center'}}>
-                        <Text>Create your first post in the Play tab</Text>
+                        {id == user.user_id ? <Text>Create your first post in the Play tab</Text> : <Text>No posts yet.</Text>}
                     </View> : null}
             />  }
             

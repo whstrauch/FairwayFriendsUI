@@ -11,7 +11,7 @@ import AnimatedHeartButton from './AnimatedLike';
 import ImageCarousel from './ImageCarousel';
 import customFetch from '../../HelperFunctions/request';
 import { useAuth } from '../../Context/UserContext';
-import { useFetch } from '../../HelperFunctions/dataHook';
+import { useFetch, useUser } from '../../HelperFunctions/dataHook';
 import useSWR from 'swr';
 
 const testUser = {id: '1', name: 'John Doe', username: 'jdoe4'}
@@ -38,7 +38,7 @@ type Props = {
         name: string;
         username: string;
         profile_pic: string;
-    }
+    } | undefined;
 }
 
 const months = [
@@ -60,6 +60,7 @@ const Post = memo(function Post({post, user}: Props) {
     
     const {user: mainUser} = useAuth();
     const {isLoading, data} = useSWR(() => `http://localhost:5000/like/${post.id}/${mainUser.user_id}`, fetch, {revalidateOnFocus: false})
+    const {data: user2, error, isLoading: isLoading2, mutate } = useSWR(user === undefined ? [`user/${post.poster_id}`, mainUser.jwt] : null, ([url, token]) => customFetch(url, "GET", undefined, token))    
     const [dateString, setDateString] = useState("")
     const navigation = useNavigation<NativeStackNavigationProp<HomeStackNavigation>>();
     
@@ -114,7 +115,7 @@ const Post = memo(function Post({post, user}: Props) {
 
     return (
         <View style={styles.container}>
-            <UserRow user={user} type='post'/>
+            <UserRow user={user === undefined ? user2 : user} type='post'/>
             <Divider horizontalInset={true} />
             <View style={{flexDirection: 'row', paddingVertical: 10 }}>
                 <View style={styles.titleDescBlock}>
@@ -132,7 +133,7 @@ const Post = memo(function Post({post, user}: Props) {
                 </View>
             </View>
             <Divider horizontalInset={true} />
-            <View style={[styles.statsRow, {justifyContent: post?.tags?.length === 0 ? 'flex-end' : 'space-around'}]}>
+            <View style={styles.statsRow}>
                 <Pressable style={styles.userStat} onPress={() => console.log("Inner", post)}>
                     <Text style={{fontWeight: 'bold', fontSize: 14}}>Score</Text>
                     <Text style={{fontSize: 14}}>78 (+6)</Text>
@@ -151,7 +152,7 @@ const Post = memo(function Post({post, user}: Props) {
             
             
             {/* ImageCarousel */}
-            <ImageCarousel media={post?.media} ratio={Number(post?.ratio)}/>
+            {post?.media.length == 0 ? <Divider horizontalInset={true} style={{marginBottom: 5}} /> : <ImageCarousel media={post?.media} ratio={Number(post?.ratio)}/>}
             
             {/* <Image style={{height: 300, width: '100%', resizeMode: 'cover', borderRadius: 2}} source={require('/Users/willstrauch/FairwayFriends/Assets/GolfCourse.png')} /> */}
             <View style={{ flexDirection: 'row', marginHorizontal: 10, justifyContent: 'space-between'}}>
@@ -190,13 +191,12 @@ const styles = StyleSheet.create({
     },
     statsRow: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center'
+        justifyContent: 'space-around',
+        alignItems: 'center',
     },
     userStat: {
         alignItems: 'center',
         width: '33%',
-        justifyContent: 'center',
         padding: 5,
     },
     titleDescBlock: {

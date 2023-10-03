@@ -27,7 +27,6 @@ const ImageCarousel = ({media, ratio}: {media: any, ratio: number}) => {
         if (roundIndex !== indexRef.current && !isNoMansLand) {
             setOldIndex(indexRef.current)
             setIndex(roundIndex);
-            console.log(indexRef.current)
         }
     }, []);
 
@@ -53,7 +52,6 @@ const ImageCarousel = ({media, ratio}: {media: any, ratio: number}) => {
 
                 {media !== undefined && media.slice(0, media.length > 4 ? 4 : media.length).map((_: any, index: React.Key | null | undefined) => {
                     const newIndex = currIndex < 3 ? currIndex : currIndex > media.length - 4 ? currIndex - (media.length - 4) : currIndex - oldIndex > 0 ? 2 : 1
-                    console.log("dots mapped", index, newIndex)
                     return (<View
                         key={index}
                         style={[

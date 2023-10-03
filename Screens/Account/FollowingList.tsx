@@ -25,7 +25,6 @@ const FollowingList = ({navigation, route}: Props) => {
       }, [navigation, route.params.type]);
 
     // const users = [{name: 'Mike', username: 'Mikey', id: '1', is_following: true}]
-      console.log(data, "MESSAGE")
 
     return (
         <SafeAreaView style={{height: '100%'}}>

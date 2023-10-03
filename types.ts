@@ -139,7 +139,7 @@ export type UserType = {
         status?: string;
         is_following?: string;
         profile_pic: string;
-    },
+    }, 
     relationship?: {
         followee_id: string;
         follower_id: string;
