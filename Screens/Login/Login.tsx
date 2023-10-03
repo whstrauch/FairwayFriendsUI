@@ -17,6 +17,7 @@ const Login = () => {
 const styles = StyleSheet.create({
     container: {
         display: "flex",
+        backgroundColor: 'white',
         flex: 1,
         alignItems: 'center'
     }

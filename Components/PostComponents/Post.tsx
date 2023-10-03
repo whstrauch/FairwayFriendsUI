@@ -119,13 +119,13 @@ const Post = memo(function Post({post, user}: Props) {
             <Divider horizontalInset={true} />
             <View style={{flexDirection: 'row', paddingVertical: 10 }}>
                 <View style={styles.titleDescBlock}>
-                    <Text style={{fontSize: 18, fontWeight: '500'}}>{post?.title}</Text>
-                    <Text>
+                    <Text style={{fontSize: 16, fontWeight: '500'}}>{post?.title}</Text>
+                    <Text style={{fontSize: 12}}>
                         {post?.caption}
                     </Text>
                 </View>
                 <View style={{marginLeft: 'auto', alignItems: 'flex-end',justifyContent: 'center', paddingRight: 10, width: '40%'}}>
-                    <Pressable style={{flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', marginBottom: 8}}>
+                    <Pressable style={{flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', marginBottom: 5}}>
                         <Icon name='location' color={'#006B54'} size={15}/>
                         <Text style={{fontSize: 11}}>{post?.course_name}</Text>
                     </Pressable>
@@ -135,13 +135,13 @@ const Post = memo(function Post({post, user}: Props) {
             <Divider horizontalInset={true} />
             <View style={styles.statsRow}>
                 <Pressable style={styles.userStat} onPress={() => console.log("Inner", post)}>
-                    <Text style={{fontWeight: 'bold', fontSize: 14}}>Score</Text>
-                    <Text style={{fontSize: 14}}>78 (+6)</Text>
+                    <Text style={{fontWeight: '600', fontSize: 14}}>Score</Text>
+                    <Text style={{fontSize: 12}}>78 (+6)</Text>
                 </Pressable>
                 {post?.tags?.length !== 0 && <Pressable style={styles.userStat} onPress={() => navigation.navigate('PlayingGroup')}>
-                    <Text style={{fontWeight: 'bold', fontSize: 14}}>Played with</Text>
+                    <Text style={{fontWeight: '600', fontSize: 14}}>Played with</Text>
                     {post?.tags.map((tag) => 
-                        <Text style={{fontSize: 14}}>{tag.user_name}</Text>
+                        <Text style={{fontSize: 12}}>{tag.user_name}</Text>
                     )}
                 </Pressable>}
                 {/* <Pressable style={styles.userStat}>

@@ -49,7 +49,7 @@ const UserRow = ({user, type, timestamp}: UserType) => {
     return (
         
         <Pressable style={styles.userRow} onPress={() => goToProfile()}>
-            {!profPic?.ok ? <Icon size={40} name='person-circle'/> : <Image source={profPic} width={100} height={100} style={{width: 50, height: 50, borderRadius: 25, borderWidth: 1, borderColor: '#f0f0f0'}}/>}
+            {!profPic?.ok ? <Icon size={40} name='person-circle'/> : <Image source={profPic} width={100} height={100} style={{width: 40, height: 40, borderRadius: 25, borderWidth: 1, borderColor: '#f0f0f0'}}/>}
             <View style={{paddingLeft: 5}}>
                 <Text >{user?.name}</Text>
                 {(type === 'list' || type === 'like' || type === "add") && <Text style={{color: 'grey'}}>@{user?.username}</Text>}
