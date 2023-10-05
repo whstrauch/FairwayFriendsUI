@@ -17,6 +17,7 @@ import customFetch from '../../HelperFunctions/request';
 import Toast from 'react-native-simple-toast';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
+import { API_URL } from '../../Context/Vars';
 
 type Props = NativeStackScreenProps<PlayStackNavigation, "PostRound">
 type friend = {
@@ -141,7 +142,7 @@ const PostRound = ({route, navigation}: Props) => {
             body: data
         }
 
-        fetch("http://127.0.0.1:5000/post", options)
+        fetch(`http://${API_URL}:5000/post`, options)
         .then((res) => {
             console.log(res);
             if (res.ok) {

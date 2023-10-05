@@ -13,6 +13,7 @@ import customFetch from '../../HelperFunctions/request';
 import { useAuth } from '../../Context/UserContext';
 import { useFetch, useUser } from '../../HelperFunctions/dataHook';
 import useSWR from 'swr';
+import { API_URL } from '../../Context/Vars';
 
 const testUser = {id: '1', name: 'John Doe', username: 'jdoe4'}
 
@@ -59,7 +60,7 @@ const months = [
 const Post = memo(function Post({post, user}: Props) {
     
     const {user: mainUser} = useAuth();
-    const {isLoading, data} = useSWR(() => `http://localhost:5000/like/${post.id}/${mainUser.user_id}`, fetch, {revalidateOnFocus: false})
+    const {isLoading, data} = useSWR(() => `http://${API_URL}:5000/like/${post.id}/${mainUser.user_id}`, fetch, {revalidateOnFocus: false})
     const {data: user2, error, isLoading: isLoading2, mutate } = useSWR(user === undefined ? [`user/${post.poster_id}`, mainUser.jwt] : null, ([url, token]) => customFetch(url, "GET", undefined, token))    
     const [dateString, setDateString] = useState("")
     const navigation = useNavigation<NativeStackNavigationProp<HomeStackNavigation>>();
@@ -94,6 +95,7 @@ const Post = memo(function Post({post, user}: Props) {
 
     const like = () => {
         // Call database for likes
+        // Should edit to return new like count
         const data = {
             "user_id": mainUser.user_id,
             "post_id": post.id
@@ -138,7 +140,7 @@ const Post = memo(function Post({post, user}: Props) {
                     <Text style={{fontWeight: '600', fontSize: 14}}>Score</Text>
                     <Text style={{fontSize: 12}}>78 (+6)</Text>
                 </Pressable>
-                {post?.tags?.length !== 0 && <Pressable style={styles.userStat} onPress={() => navigation.navigate('PlayingGroup')}>
+                {post?.tags?.length !== 0 && <Pressable style={styles.userStat} onPress={() => navigation.navigate('PlayingGroup', {tags: post?.tags})}>
                     <Text style={{fontWeight: '600', fontSize: 14}}>Played with</Text>
                     {post?.tags.map((tag) => 
                         <Text style={{fontSize: 12}}>{tag.user_name}</Text>
@@ -158,6 +160,7 @@ const Post = memo(function Post({post, user}: Props) {
             <View style={{ flexDirection: 'row', marginHorizontal: 10, justifyContent: 'space-between'}}>
                 <Pressable onPress={() => navigation.navigate('Likes', {likes: post === undefined ? [] : post.likes})}>
                     <Text style={{fontSize: 12}}>
+                        {/* This could use some work */}
                         {post?.likes?.length + (prevLiked ? liked ? 0 : -1 : Number(liked))} likes
                     </Text>
                 </Pressable>

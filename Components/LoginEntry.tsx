@@ -6,15 +6,12 @@ import { LoginNavigation } from '../types';
 import { Button } from './Button';
 import customFetch from '../HelperFunctions/request';
 import { useAuth } from '../Context/UserContext';
-import {useKeyboard} from "@react-native-community/hooks"
 
 const LoginEntry = () => {
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [pressed, setPressed] = useState<Boolean>(false);
     const {setUser} = useAuth();
-
-    const keyboard = useKeyboard()
 
     const navigation = useNavigation<NativeStackNavigationProp<LoginNavigation>>();
 

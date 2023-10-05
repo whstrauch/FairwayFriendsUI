@@ -12,6 +12,7 @@ import { AccountStackNavigation } from '../../types';
 import Toast from 'react-native-simple-toast';
 import { Asset, launchImageLibrary } from 'react-native-image-picker';
 import useSWR from 'swr';
+import { API_URL } from '../../Context/Vars';
 
 type Props = NativeStackScreenProps<AccountStackNavigation, 'EditProfile'>
 
@@ -54,7 +55,7 @@ const EditProfile = ({route, navigation}: Props) => {
                 },
                 body: data
             }
-            await fetch("http://127.0.0.1:5000/user/profile_pic", options).then(res => 
+            await fetch(`http://${API_URL}/user/profile_pic`, options).then(res => 
                 updated = true
             ).catch(err => console.log(err.info))
         }

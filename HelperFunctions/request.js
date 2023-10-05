@@ -1,3 +1,5 @@
+import { API_URL } from "../Context/Vars"
+
 const customFetch = (path, method="GET", data, token="") => {
     
     const options = {
@@ -12,7 +14,7 @@ const customFetch = (path, method="GET", data, token="") => {
         options.body = JSON.stringify(data)
     }
 
-    return fetch(`http://127.0.0.1:5000/${path}`, options)
+    return fetch(`http://${API_URL}:5000/${path}`, options)
         .then(resp =>  {
             if (!resp.ok) {
                 const error = new Error("Error1")

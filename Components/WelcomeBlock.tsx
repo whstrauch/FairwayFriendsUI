@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageBackground, View, StyleSheet, Text, SafeAreaView } from 'react-native';
+import { Image, ImageBackground, View, StyleSheet, Text, SafeAreaView, Pressable, Keyboard } from 'react-native';
 
 type Props = {
     image: any
@@ -10,6 +10,7 @@ type Props = {
 const WelcomeBlock = (props : Props) => {
     return (
         <ImageBackground style={styles.image} source={props.image}>
+            <Pressable onPress={() => Keyboard.dismiss()}>
             <SafeAreaView>
                 <Text style={styles.title}>{props.title}</Text>
                 <View style={styles.messageContainer}>
@@ -17,6 +18,7 @@ const WelcomeBlock = (props : Props) => {
                     <Text style={{fontSize: 20, color:'white'}}>{props.message}</Text>
                 </View>
             </SafeAreaView>
+            </Pressable>
         </ImageBackground>
     );
 };

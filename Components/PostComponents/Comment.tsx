@@ -3,11 +3,12 @@ import React, { useEffect } from 'react';
 import {Button, Image, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import useSWR from 'swr';
+import { API_URL } from '../../Context/Vars';
 import { CommentType } from '../../types';
 
 const Comment = ({ comment, user }: {comment: CommentType, user: any}) => {
     const navigation = useNavigation();
-    const {isLoading, data: profPic} = useSWR(() => "http://localhost:5000/user/profile_pic/" + user?.profile_pic, fetch)
+    const {isLoading, data: profPic} = useSWR(() => `http://${API_URL}:5000/user/profile_pic/` + user?.profile_pic, fetch)
     // Data needed: ProfPic, FirstName/LastName, created_at, comment
 
     const timestampFormat = (timestamp: string) => {

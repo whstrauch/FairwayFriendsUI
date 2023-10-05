@@ -34,8 +34,10 @@ export type HomeStackNavigation = {
     };
     Likes: {
         likes: Array<any>;
-    }
-    PlayingGroup: undefined;
+    };
+    PlayingGroup: {
+        tags: Array<any>;
+    };
     Notification2: undefined
     Profile: {
         user_id: string | number;
@@ -73,7 +75,9 @@ export type AccountStackNavigation = {
     Likes: {
         likes: Array<any>;
     }
-    PlayingGroup: undefined;
+    PlayingGroup: {
+        tags: Array<any>;
+    };
     Notifications: undefined
     EditProfile: {
         name: string;

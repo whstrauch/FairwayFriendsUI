@@ -1,0 +1,1 @@
+export const API_URL = "10.0.0.221"

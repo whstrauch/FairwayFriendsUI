@@ -1,12 +1,17 @@
 import { useScrollToTop } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { FlatList, SafeAreaView, ScrollView, View } from 'react-native';
 import { Divider } from 'react-native-paper';
+import CustomHeader from '../../Components/CustomHeader';
 import { Post } from '../../Components/PostComponents/Post';
 import { useAuth } from '../../Context/UserContext';
 import { useFetch } from '../../HelperFunctions/dataHook';
+import { HomeStackNavigation } from '../../types';
 
-const Home = () => {
+type Props = NativeStackScreenProps<HomeStackNavigation, "Home">
+
+const Home = ({navigation}: Props) => {
     const {user} = useAuth()
     const ref = React.useRef(null);
     useScrollToTop(ref)
