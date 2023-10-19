@@ -30,7 +30,6 @@ const EditProfile = ({route, navigation}: Props) => {
     const [updatedProfPic, setUpdatedProfPic] = useState<Asset>();
 
     const onChange = (text: any, val: string) => {
-        console.log(route.params)
         setUserValues({
             ...userValues,
             [val]: text
@@ -55,9 +54,9 @@ const EditProfile = ({route, navigation}: Props) => {
                 },
                 body: data
             }
-            await fetch(`http://${API_URL}/user/profile_pic`, options).then(res => 
+            await fetch(`http://${API_URL}:5000/user/profile_pic`, options).then(res => 
                 updated = true
-            ).catch(err => console.log(err.info))
+            ).catch(err => console.log("Prof pic update", err))
         }
         if (userValues.Name !== route.params.name || userValues.Username !== route.params.username || userValues.Bio !== route.params.bio || userValues.public !== route.params.public || updated) {
             const body = {
@@ -72,9 +71,11 @@ const EditProfile = ({route, navigation}: Props) => {
         }
         if (updated) {
             Toast.show("Profile updated...", 3)
+            route.params.mutate()
         } else {
             Toast.show("No changes", 3)
         }
+        
         
         navigation.pop()
 

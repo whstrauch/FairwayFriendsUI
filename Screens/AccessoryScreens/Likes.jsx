@@ -1,29 +1,31 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React from 'react';
-import { FlatList, SafeAreaView, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { ActivityIndicator, FlatList, SafeAreaView, Text, View } from 'react-native';
 import { Divider } from 'react-native-paper';
 import useSWR from 'swr';
 import { UserRow } from '../../Components/PostComponents/UserRow';
 import { useAuth } from '../../Context/UserContext';
 import { useFetch } from '../../HelperFunctions/dataHook';
-import { HomeStackNavigation } from '../../types';
+import { HomeStackNavigation, UserType } from '../../types';
 
-type Props = NativeStackScreenProps<HomeStackNavigation, 'Likes'>
 
-const Likes = ({route}: Props) => {
+const Likes = ({route}) => {
     // Fetch list of likes -> should have user information. User_id, user name, timestamp, is follow
+    // Post id should be able to fetch list of likes.
     const {user} = useAuth()
-    const users = route.params.likes.map(x => x.user_id)
+    // Fetch list of likes
+    const {isLoading: isLoading2, data: likes} = useFetch(`likes/${route?.params?.postId}`, "GET", undefined, user.jwt)
+    const users = likes?.map(like => like.user_id)
     const {isLoading, data} = useFetch("user/users", "POST", {"users": users}, user.jwt)
- 
-    console.log("USERLIST", data)
+    
     return (
         <SafeAreaView style={{height: '100%'}}>
-            <FlatList
+            {isLoading || isLoading2 ? <ActivityIndicator/> : <FlatList
                 data={Object.values(data)}
                 renderItem={({item}) => <UserRow type='like' user={item} />}
                 ItemSeparatorComponent={() => <Divider horizontalInset={true}/>}
-            />
+            />}
+            <Text>{route.params?.postId}</Text>
         </SafeAreaView>
     );
 };

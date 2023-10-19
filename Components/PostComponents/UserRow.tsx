@@ -23,9 +23,6 @@ const UserRow = ({user, type, timestamp}: UserType) => {
 
     const toggleFollow = () => {
         // Call api to toggle follow
-        if (user.user_id == undefined) {
-            console.log("FAILED")
-        }
         const body = {
             user_id: user2.user_id,
             followee_id: user.user_id
@@ -44,7 +41,7 @@ const UserRow = ({user, type, timestamp}: UserType) => {
         }
         customFetch(url, method, body, user2.jwt).then(data =>
             setFollowingStatus(newStatus)
-        ).catch(err => console.log(err))
+        ).catch(err => console.log("UserRow", err))
     }
     
     return (
@@ -52,8 +49,8 @@ const UserRow = ({user, type, timestamp}: UserType) => {
         <Pressable style={styles.userRow} onPress={() => goToProfile()}>
             {!profPic?.ok ? <Icon size={40} name='person-circle'/> : <Image source={profPic} width={100} height={100} style={{width: 40, height: 40, borderRadius: 25, borderWidth: 1, borderColor: '#f0f0f0'}}/>}
             <View style={{paddingLeft: 5}}>
-                <Text >{user?.name}</Text>
-                {(type === 'list' || type === 'like' || type === "add") && <Text style={{color: 'grey'}}>@{user?.username}</Text>}
+                <Text style={{fontWeight: '600'}}>{user?.name}</Text>
+                {(type === 'list' || type === 'like' || type === "add" || type === "followrequest") && <Text style={{color: 'grey'}}>@{user?.username}</Text>}
             </View>
             
             {type === 'comment' && <><Text> {'\u00B7'} </Text><Text style={{ fontWeight: '200', fontSize: 12 }}>{timestamp}</Text></>}

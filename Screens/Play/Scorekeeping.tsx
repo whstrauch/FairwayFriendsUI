@@ -124,7 +124,6 @@ const Scorekeeping = ({route, navigation}: Props) => {
           title: route.params.courseName,
           headerTitleStyle: styles.title
         });
-        console.log(route.params.tees)
       }, [navigation, route.params.courseName]);
 
     

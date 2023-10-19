@@ -34,7 +34,6 @@ const Account = ({route, navigation} : Props) => {
     useEffect(() => {
         
         if (fetchedUser !== undefined) {
-            console.log(fetchedUser, user.user_id)
             customFetch(`user/isfollowing/${fetchedUser.user_id}/${user.user_id}`, "GET", undefined, user.jwt).then(res =>
                 setStatus(res.status)
             )
@@ -44,7 +43,6 @@ const Account = ({route, navigation} : Props) => {
 
     const refresh = () => {
         setRefreshing(true);
-        console.log("REFRESH", profPic);
         mutate()
         userPostsMutate()
         setRefreshing(false)
@@ -56,11 +54,11 @@ const Account = ({route, navigation} : Props) => {
             <FlatList 
                 ref={ref}
                 data={posts}
-                renderItem={({item, index}) => <Post post={item} user={fetchedUser} key={index}/>}
+                renderItem={({item, index}) => <Post post={item} user={fetchedUser} key={item.id}/>}
                 refreshing={refreshing}
                 onRefresh={() => refresh()}
-                ItemSeparatorComponent={() => <View style={{height: 10}}/>}
-                ListHeaderComponent={<AccountHeader user={fetchedUser} mainUser={user} isMain={id == user.user_id} isFollowing={status} profPic={profPic}/>}
+                ItemSeparatorComponent={Divider}
+                ListHeaderComponent={<AccountHeader user={fetchedUser} mainUser={user} isMain={id == user.user_id} isFollowing={status} profPic={profPic} mutate={mutate}/>}
                 ListFooterComponent={posts?.length === 0 ? 
                     <View style={{height: 150, justifyContent: 'center', alignItems: 'center'}}>
                         {id == user.user_id ? <Text>Create your first post in the Play tab</Text> : <Text>No posts yet.</Text>}

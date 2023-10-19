@@ -6,8 +6,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { AccountStackNavigation } from '../../types';
 import { Comments } from '../AccessoryScreens/Comments';
 import Likes from '../AccessoryScreens/Likes';
+import Score from '../AccessoryScreens/Score';
 import Tagged from '../AccessoryScreens/Tagged';
-import Notifications from '../Notifications';
 import { Account } from './Account';
 import EditProfile from './EditProfile';
 import FollowingList from './FollowingList';
@@ -29,17 +29,18 @@ const AccountStack = () => {
                 options={{
                     headerRight: () => (
                         <View style={{flexDirection: 'row'}}>
-                            <Icon name="settings-outline" size={20} style={{marginRight: 15}} onPress={() => navigation.navigate('Settings')}/>
-                            <Icon name="ios-notifications-outline" size={20} onPress={() => navigation.navigate('Notifications')}/>
+                            <Icon name="settings-outline" size={20} onPress={() => navigation.navigate('Settings')}/>
+                            {/* <Icon name="ios-notifications-outline" size={20} onPress={() => navigation.navigate('Notifications')}/> */}
                         </View>      
             )}}/>
             <Stack.Screen name="Comments" component={Comments} options={{headerTransparent: true}}/>
             <Stack.Screen name="Likes" component={Likes} options={{headerTransparent: true}} />
             <Stack.Screen name="PlayingGroup" component={Tagged} options={{headerTransparent: true, title: "Playing Group"}} />
-            <Stack.Screen name="Notifications" component={Notifications} />
+            {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
             <Stack.Screen name="FollowingList" component={FollowingList} options={{title: ''}}/>
             <Stack.Screen name="Settings" component={Settings} />
             <Stack.Screen name="EditProfile" component={EditProfile} options={{title: "Edit Profile"}} />
+            <Stack.Screen name="Score" component={Score} />
         </Stack.Navigator>
     );
 };

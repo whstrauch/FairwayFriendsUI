@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 import { FlatList, KeyboardAvoidingView, Pressable, SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 import { Divider } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -26,7 +26,8 @@ const Comments = ({route}: Props) => {
     const [userComment, setUserComment] = useState<string>("");
     const textRef = useRef<TextInput>(null);
     const [comments, setComments] = useState<Array<any>>([])
-    const users = route.params.comments.map(x => x.user_id)
+    const {isLoading: isLoading2, data: otherComments, mutate} = useFetch(`post/comments/${route?.params?.postId}`, "GET", undefined, mainUser.jwt)
+    const users = otherComments?.map((x: any) => x.user_id)
     const {isLoading, data} = useFetch("user/users", "POST", {"users": users}, mainUser.jwt)
 
 
@@ -35,22 +36,18 @@ const Comments = ({route}: Props) => {
         if (route.params.inputFocused) {
             textRef.current?.focus()
         }
-        const comments = route.params.comments
-        setComments([...comments])
     }, [route.params])
 
     const comment = () => {
-        console.log(route.params)
         const data = {
             user_id: mainUser.user_id,
             post_id: route.params.postId,
             comment: userComment
         }
 
-        customFetch("post/comment", "POST", data, mainUser.jwt).then(res =>
-            console.log(res)
-            // Should append comment to top of list!
-        ).catch(err =>
+        customFetch("post/comment", "POST", data, mainUser.jwt).then(res => {
+            mutate()
+        }).catch(err =>
             console.log(err)
         )
     }
@@ -60,11 +57,11 @@ const Comments = ({route}: Props) => {
     return (
         <SafeAreaView>
             <KeyboardAvoidingView style={{height: '100%'}} behavior='padding'>
-                {isLoading ? <Text>Loading</Text> : <FlatList
+                {isLoading ? <View><ActivityIndicator/></View> : <FlatList
                     style={{marginBottom: 'auto'}}
-                    data={comments}
+                    data={otherComments}
                     extraData={data}
-                    renderItem={({item, index}) => <Comment comment={item} user={data[item.user_id]}/>}
+                    renderItem={({item, index}) => <Comment comment={item} user={data[item.user_id]} key={item.comment_id}/>}
                     keyExtractor={item => item.id}
                     ItemSeparatorComponent={() => <Divider horizontalInset={true}/>}
                 />}
@@ -74,7 +71,7 @@ const Comments = ({route}: Props) => {
                         ref={textRef}
                         multiline
                         numberOfLines={1}
-                        style={{width: '75%', alignSelf: 'center'}} 
+                        style={{width: '75%', alignSelf: 'center'}}
                         placeholder='Add a comment' 
                         value={userComment} 
                         onChangeText={setUserComment}

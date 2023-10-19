@@ -9,8 +9,9 @@ type Props = {
 
 const WelcomeBlock = (props : Props) => {
     return (
+        <Pressable onPress={() => Keyboard.dismiss()} style={{display: 'flex', flex: 1}}>
         <ImageBackground style={styles.image} source={props.image}>
-            <Pressable onPress={() => Keyboard.dismiss()}>
+            
             <SafeAreaView>
                 <Text style={styles.title}>{props.title}</Text>
                 <View style={styles.messageContainer}>
@@ -18,17 +19,16 @@ const WelcomeBlock = (props : Props) => {
                     <Text style={{fontSize: 20, color:'white'}}>{props.message}</Text>
                 </View>
             </SafeAreaView>
-            </Pressable>
         </ImageBackground>
+        </Pressable>
     );
 };
 
 const styles = StyleSheet.create({
     image: {
-        width: 400,
-        height: 450,
-        resizeMethod: 'auto',
-        flex: 1
+        width: 450,
+        height: 500,
+        resizeMethod: 'auto'
     },
     title: {
         width: '70%',

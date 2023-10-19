@@ -45,7 +45,7 @@ const App = () => {
       <PaperProvider theme={theme}>
         <UserProvider>
           <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerTintColor: '#006B54', headerTitleStyle: {color: 'black'}}}>
+            <Stack.Navigator screenOptions={{headerTintColor: '#006B54', headerTitleStyle: {color: 'black'}}} id="Root">
               <Stack.Screen name='Login' component={Login} options={{headerShown: false}} />
               <Stack.Screen name='SignUp' component={CreateAccount} options={{title: 'Sign Up', headerTransparent: true}}/>
               <Stack.Screen name="ResetPassword" component={ForgotPassword} options={{title: 'Reset Password', headerTransparent: true}}/>

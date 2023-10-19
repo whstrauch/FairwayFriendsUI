@@ -1,6 +1,5 @@
-import DropDownPicker from 'react-native-dropdown-picker';
 import RNPickerSelect from 'react-native-picker-select';
-import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Keyboard, KeyboardAvoidingView, SafeAreaView, Text, TextInput, View } from 'react-native';
 import { SegmentedButtons } from 'react-native-paper';
@@ -9,7 +8,6 @@ import { Button } from '../../Components/Button';
 import { StyleSheet } from 'react-native';
 import { useFetch } from '../../HelperFunctions/dataHook';
 import { useAuth } from '../../Context/UserContext';
-import { preload } from 'swr';
 import customFetch from '../../HelperFunctions/request';
 import { useScore, TEMPLATESCORE } from '../../Context/ScoreContext';
 

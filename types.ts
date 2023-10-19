@@ -35,10 +35,16 @@ export type HomeStackNavigation = {
     Likes: {
         likes: Array<any>;
     };
+    Score: {
+        postId: number
+    };
     PlayingGroup: {
         tags: Array<any>;
     };
-    Notification2: undefined
+    Notifications: undefined
+    FollowRequests: {
+        ids: Array<any>;
+    };
     Profile: {
         user_id: string | number;
         main_user: boolean;
@@ -69,23 +75,27 @@ export type AccountStackNavigation = {
     };
     Comments: {
         inputFocused: Boolean;
-        comments: Array<any>;
+        comments: Array<any>;  // Shouldnt be passed, should keep params simple.
         postId: number;
     };
     Likes: {
-        likes: Array<any>;
+        likes: Array<any>;  // Shouldnt be passed, should keep params simple.
     }
-    PlayingGroup: {
-        tags: Array<any>;
+    Score: {
+        postId: number
     };
-    Notifications: undefined
-    EditProfile: {
+    PlayingGroup: {
+        tags: Array<any>; // Shouldnt be passed, should keep params simple.
+    };
+    // Notifications: undefined
+    EditProfile: {  // Shouldnt be passed, should keep params simple.
         name: string;
         username: string;
         bio: string;
         prof_pic: any;
         id: string | number;
         public: boolean;
+        mutate: Function;
     }
     Settings: undefined
 
@@ -98,7 +108,7 @@ export type PlayStackNavigation = {
         courseId: string | number;
         courseName: string;
     };
-    Scorekeeping: {
+    Scorekeeping: {  // Shouldnt be passed, should keep params simple.
         courseId: string | number;
         courseName: string;
         numHoles: string | number;
@@ -107,7 +117,7 @@ export type PlayStackNavigation = {
         startingHole: number
     }
     SetUpRound: {
-        course: {
+        course: {  // Shouldnt be passed, should keep params simple.
             course_id: string | number;
             course_name: string;
             num_holes: string | number;

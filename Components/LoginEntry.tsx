@@ -11,6 +11,7 @@ const LoginEntry = () => {
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [pressed, setPressed] = useState<Boolean>(false);
+    const [error, setError] = useState(false)
     const {setUser} = useAuth();
 
     const navigation = useNavigation<NativeStackNavigationProp<LoginNavigation>>();
@@ -22,7 +23,17 @@ const LoginEntry = () => {
             user_id: data.user.user_id
         }))
         .then(data => navigation.navigate('MainApp'))
-        .catch(error => console.log(error))
+        .catch(error => setError(true))
+        // This error could also be that the network is down so need to handle.
+    }
+
+    const onChange = (text: string, sw: boolean) => {
+        if (error) {setError(false)}
+        if (sw) {
+            setUsername(text)
+        } else {
+            setPassword(text)
+        }
     }
 
     return (
@@ -31,18 +42,19 @@ const LoginEntry = () => {
             <TextInput 
                 placeholder='Username' 
                 value={username} 
-                onChangeText={setUsername} 
-                autoCorrect={false} 
+                onChangeText={(text) => onChange(text, true)} 
+                autoCorrect={true} 
                 autoCapitalize="none"
                 style={styles.textInput}
             />
             <TextInput 
                 placeholder='Password' 
                 value={password} 
-                onChangeText={setPassword} 
                 secureTextEntry={true}
+                onChangeText={(text) => onChange(text, false)} 
                 style={styles.textInput}
             />
+            {error && <Text style={styles.errorText}>Invalid Username or Password. {"\n"}Please try again or reset your password.</Text>}
             <View style={styles.loginButtonContainer}>
                 <Button type="main" text="Login" onPress={() => login()} style={{width: '50%', paddingVertical: 10}} />
                 <Pressable 
@@ -71,8 +83,7 @@ const LoginEntry = () => {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute',
-        bottom: 0,
+        display: 'flex',
         width: '100%',
         alignItems: 'center',
         backgroundColor: 'white'
@@ -103,6 +114,7 @@ const styles = StyleSheet.create({
     textInput: {
         padding: 12,
         width: '80%',
+        height: 40,
         margin: 6,
         borderColor: 'black',
         borderWidth: 1,
@@ -114,6 +126,11 @@ const styles = StyleSheet.create({
         padding: 10,
         marginTop: 5,
         marginBottom: 50
+    },
+    errorText: {
+        width: "80%",
+        color: "red",
+        textAlign: 'center'
     }
 })
 

@@ -14,21 +14,24 @@ import { useAuth } from '../../Context/UserContext';
 import { useFetch, useUser } from '../../HelperFunctions/dataHook';
 import useSWR from 'swr';
 import { API_URL } from '../../Context/Vars';
+import InteractionBar from './InteractionBar';
 
 const testUser = {id: '1', name: 'John Doe', username: 'jdoe4'}
 
 type Post = {
     id: number;
     poster_id: number;
-    course_id: number;
+    course_id: number; // For clicking if wanting to add map function screen
     course_name: string;
+    like_count: number;
     title: string;
     caption: string;
     ratio: string;
-    likes: Array<any>;
-    comments: Array<any>;
+    likes: Array<any>; // Length -> Will fetch full list when clicking to screen
+    comments: Array<any>; // Length -> Will fetch full list when clicking to screen
     tags: Array<any>;
     date: any;
+    score: string;
     media: Array<any>;
 }
 
@@ -60,22 +63,11 @@ const months = [
 const Post = memo(function Post({post, user}: Props) {
     
     const {user: mainUser} = useAuth();
-    const {isLoading, data} = useSWR(() => `http://${API_URL}:5000/like/${post.id}/${mainUser.user_id}`, fetch, {revalidateOnFocus: false})
     const {data: user2, error, isLoading: isLoading2, mutate } = useSWR(user === undefined ? [`user/${post.poster_id}`, mainUser.jwt] : null, ([url, token]) => customFetch(url, "GET", undefined, token))    
     const [dateString, setDateString] = useState("")
     const navigation = useNavigation<NativeStackNavigationProp<HomeStackNavigation>>();
     
-    const [liked, setLiked] = useState<Boolean>(false);
-    const [prevLiked, setPrevLiked] = useState(false);
-    console.log(post)
-    console.log("DATA", user)
-
-    useEffect(() => {
-        data?.json().then(res => {
-            setLiked(res.is_liked)
-            setPrevLiked(res.is_liked)
-        })
-    }, [isLoading])
+    
     
     useEffect(() => {
         const date = new Date()
@@ -93,26 +85,7 @@ const Post = memo(function Post({post, user}: Props) {
         setDateString(tempDate)
     }, [post])
 
-    const like = () => {
-        // Call database for likes
-        // Should edit to return new like count
-        const data = {
-            "user_id": mainUser.user_id,
-            "post_id": post.id
-        }
-        if (!liked) {
-            customFetch("post/like", "POST", data, mainUser.jwt).catch(err =>
-                console.log(err)
-            )
-        } else {
-            customFetch("post/like/delete", "DELETE", data, mainUser.jwt).catch(err =>
-                console.log(err)
-            )
-        }
-        setLiked(!liked)
-        // Set likes
-        
-    }
+    
 
 
     return (
@@ -136,20 +109,17 @@ const Post = memo(function Post({post, user}: Props) {
             </View>
             <Divider horizontalInset={true} />
             <View style={styles.statsRow}>
-                <Pressable style={styles.userStat} onPress={() => console.log("Inner", post)}>
+                <Pressable style={styles.userStat} onPress={() => navigation.navigate('Score', {postId: post.id})}>
                     <Text style={{fontWeight: '600', fontSize: 14}}>Score</Text>
-                    <Text style={{fontSize: 12}}>78 (+6)</Text>
+                    <Text style={{fontSize: 12}}>{post?.score}</Text>
                 </Pressable>
-                {post?.tags?.length !== 0 && <Pressable style={styles.userStat} onPress={() => navigation.navigate('PlayingGroup', {tags: post?.tags})}>
+                {post?.tags?.length !== 0 && 
+                <Pressable style={styles.userStat} onPress={() => navigation.navigate('PlayingGroup', {tags: post?.tags})}>
                     <Text style={{fontWeight: '600', fontSize: 14}}>Played with</Text>
-                    {post?.tags.map((tag) => 
-                        <Text style={{fontSize: 12}}>{tag.user_name}</Text>
+                    {post?.tags.map((tag, index) => 
+                        <Text key={index} style={{fontSize: 12}}>{tag.user_name}</Text>
                     )}
                 </Pressable>}
-                {/* <Pressable style={styles.userStat}>
-                    <Text style={{fontWeight: 'bold', fontSize: 14}}>Achievements</Text>
-                    <Text style={{alignSelf: 'center', fontSize: 14}}>Medals</Text>
-                </Pressable> */}
             </View>
             
             
@@ -157,33 +127,7 @@ const Post = memo(function Post({post, user}: Props) {
             {post?.media.length == 0 ? <Divider horizontalInset={true} style={{marginBottom: 5}} /> : <ImageCarousel media={post?.media} ratio={Number(post?.ratio)}/>}
             
             {/* <Image style={{height: 300, width: '100%', resizeMode: 'cover', borderRadius: 2}} source={require('/Users/willstrauch/FairwayFriends/Assets/GolfCourse.png')} /> */}
-            <View style={{ flexDirection: 'row', marginHorizontal: 10, justifyContent: 'space-between'}}>
-                <Pressable onPress={() => navigation.navigate('Likes', {likes: post === undefined ? [] : post.likes})}>
-                    <Text style={{fontSize: 12}}>
-                        {/* This could use some work */}
-                        {post?.likes?.length + (prevLiked ? liked ? 0 : -1 : Number(liked))} likes
-                    </Text>
-                </Pressable>
-                <Pressable onPress={() => navigation.navigate('Comments', {inputFocused: false, comments: post === undefined ? [] : post.comments, postId: post.id})}>
-                    <Text style={{fontSize: 12}}>
-                        {post?.comments?.length} comments
-                    </Text>
-                </Pressable>
-            </View>
-            <Divider horizontalInset={true} style={{marginVertical: 5}}/>
-            <View style={{flexDirection: 'row'}}>
-                <View style={styles.userInteractionBlock}>
-                    <AnimatedHeartButton onPress={like} liked={liked} style={styles.userInteractionButton}/>
-                    <Pressable style={styles.userInteractionButton} onPress={() => navigation.navigate("Comments", {inputFocused: true, comments: post === undefined ? [] : post.comments, postId: post.id})}>
-                        <Icon name="ios-chatbubble-outline" size={25}/>
-                        <Text> Comment</Text>
-                    </Pressable>
-                    <Pressable style={styles.userInteractionButton} onPress={() => console.log(post)}>
-                        <Icon name="ios-arrow-redo-outline" size={25}/>
-                        <Text> Share</Text>
-                    </Pressable>
-                </View>
-            </View>
+            <InteractionBar postId={post?.id} likeCount={post?.like_count} commentCount={post?.comments.length} navigation={navigation}/>
         </View>
     );
 });
@@ -205,18 +149,6 @@ const styles = StyleSheet.create({
     titleDescBlock: {
         paddingLeft: 10,
         width: '55%'
-    },
-    userInteractionBlock: {
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-evenly',
-        marginBottom: 5
-    },
-    userInteractionButton: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '33%',
-        justifyContent: 'center',
     }
 })
 

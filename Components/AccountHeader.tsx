@@ -24,9 +24,10 @@ type props = {
     }
     isMain: boolean;
     isFollowing: string;
+    mutate: Function
 }
 
-const AccountHeader = ({user, mainUser, isMain, isFollowing, profPic} : props | any) => {
+const AccountHeader = ({user, mainUser, isMain, isFollowing, profPic, mutate} : props | any) => {
 
     const navigation = useNavigation<NativeStackNavigationProp<AccountStackNavigation>>();
     const [followingStatus, setFollowingStatus] = useState("new")
@@ -36,7 +37,6 @@ const AccountHeader = ({user, mainUser, isMain, isFollowing, profPic} : props | 
     }, [isFollowing])
         //Call change follow api
     const toggleFollow = () => {
-        console.log(isFollowing, followingStatus)
         // Call api to toggle follow
         const body = {
             user_id: mainUser.user_id,
@@ -54,9 +54,9 @@ const AccountHeader = ({user, mainUser, isMain, isFollowing, profPic} : props | 
             method = "POST"
             result = "pending"
         }
-        // customFetch(url, method, body, mainUser.jwt).then(data =>
-        //     setFollowingStatus(result)
-        // ).catch(err => console.log(err))
+        customFetch(url, method, body, mainUser.jwt).then(data =>
+            setFollowingStatus(result)
+        ).catch(err => console.log(err))
     }
 
     return (
@@ -83,7 +83,7 @@ const AccountHeader = ({user, mainUser, isMain, isFollowing, profPic} : props | 
                         {isMain ?
                         <Pressable 
                             onPress={() => {
-                                navigation.navigate('EditProfile', {name: user.name, username: user.username, bio: user.bio, prof_pic: profPic.url, id: user.user_id, public: user.public})}}
+                                navigation.navigate('EditProfile', {name: user.name, username: user.username, bio: user.bio, prof_pic: profPic.url, id: user.user_id, public: user.public, mutate: mutate})}}
                             style={({pressed}) => [
                                 {
                                     backgroundColor: pressed ? '#66a698' : '#006B54',

@@ -1,0 +1,287 @@
+2023-10-05 21:01:09 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x2caa570f0; archive(resolved)="<IDEArchive: 0x60003467ca20>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (15, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x2caa570f0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x10ca26fd0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d41224f0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2caa53c60; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2caa51020; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2caa333e0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d6f48e40; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d6f93110; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2d2be56b0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600007845900; teamID='3R2UF4T4H4', teamName='William Strauch', teamType='Individual', username='will.strauch@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2db32acd0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="(null)">
+	<IDEDistributionContext: 0x2ddd146b0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="(null)">
+	<IDEDistributionContext: 0x2d6f7c640; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000061d8440>", team="(null)">
+	<IDEDistributionContext: 0x2d46ba590; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x2d478c840; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x2d46bb0c0; archive = "<IDEArchive: 0x60003467ca20>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x2caa570f0>
+2023-10-05 21:01:09 +0000  Processing step: IDEDistributionCreateDestRootStep
+2023-10-05 21:01:09 +0000  Processing step: IDEDistributionCopyItemStep
+2023-10-05 21:01:09 +0000  Running /usr/bin/ditto '-V' '/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app'
+2023-10-05 21:01:09 +0000  >>> Copying /Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app 
+2023-10-05 21:01:09 +0000  copying file ./_CodeSignature/CodeResources ... 
+2023-10-05 21:01:09 +0000  10754 bytes for ./_CodeSignature/CodeResources
+2023-10-05 21:01:09 +0000  copying file ./Fontisto.ttf ... 
+2023-10-05 21:01:09 +0000  313528 bytes for ./Fontisto.ttf
+2023-10-05 21:01:09 +0000  copying file ./Octicons.ttf ... 
+2023-10-05 21:01:09 +0000  49404 bytes for ./Octicons.ttf
+2023-10-05 21:01:09 +0000  copying file ./Feather.ttf ... 
+2023-10-05 21:01:09 +0000  56228 bytes for ./Feather.ttf
+2023-10-05 21:01:09 +0000  copying file ./Entypo.ttf ... 
+2023-10-05 21:01:09 +0000  66200 bytes for ./Entypo.ttf
+2023-10-05 21:01:09 +0000  copying file ./FontAwesome5_Brands.ttf ... 
+2023-10-05 21:01:09 +0000  134040 bytes for ./FontAwesome5_Brands.ttf
+2023-10-05 21:01:09 +0000  copying file ./MaterialCommunityIcons.ttf ... 
+2023-10-05 21:01:09 +0000  1147844 bytes for ./MaterialCommunityIcons.ttf
+2023-10-05 21:01:09 +0000  copying file ./AppIcon60x60@2x.png ... 
+2023-10-05 21:01:09 +0000  3038 bytes for ./AppIcon60x60@2x.png
+2023-10-05 21:01:09 +0000  copying file ./AntDesign.ttf ... 
+2023-10-05 21:01:09 +0000  70344 bytes for ./AntDesign.ttf
+2023-10-05 21:01:09 +0000  copying file ./Foundation.ttf ... 
+2023-10-05 21:01:09 +0000  56976 bytes for ./Foundation.ttf
+2023-10-05 21:01:09 +0000  copying file ./Ionicons.ttf ... 
+2023-10-05 21:01:09 +0000  247192 bytes for ./Ionicons.ttf
+2023-10-05 21:01:09 +0000  copying file ./FontAwesome5_Solid.ttf ... 
+2023-10-05 21:01:09 +0000  202744 bytes for ./FontAwesome5_Solid.ttf
+copying file ./FontAwesome5_Regular.ttf ... 
+2023-10-05 21:01:09 +0000  33736 bytes for ./FontAwesome5_Regular.ttf
+2023-10-05 21:01:09 +0000  copying file ./AccessibilityResources.bundle/en.lproj/Localizable.strings ... 
+2023-10-05 21:01:09 +0000  518 bytes for ./AccessibilityResources.bundle/en.lproj/Localizable.strings
+2023-10-05 21:01:09 +0000  copying file ./AccessibilityResources.bundle/Info.plist ... 
+2023-10-05 21:01:09 +0000  794 bytes for ./AccessibilityResources.bundle/Info.plist
+2023-10-05 21:01:09 +0000  copying file ./FontAwesome.ttf ... 
+2023-10-05 21:01:09 +0000  165548 bytes for ./FontAwesome.ttf
+2023-10-05 21:01:09 +0000  copying file ./Zocial.ttf ... 
+2023-10-05 21:01:09 +0000  25788 bytes for ./Zocial.ttf
+copying file ./Assets.car ... 
+2023-10-05 21:01:09 +0000  100840 bytes for ./Assets.car
+2023-10-05 21:01:09 +0000  copying file ./EvilIcons.ttf ... 
+2023-10-05 21:01:09 +0000  13456 bytes for ./EvilIcons.ttf
+2023-10-05 21:01:09 +0000  copying file ./main.jsbundle ... 
+2023-10-05 21:01:09 +0000  3328035 bytes for ./main.jsbundle
+2023-10-05 21:01:09 +0000  copying file ./LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2023-10-05 21:01:09 +0000  3822 bytes for ./LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2023-10-05 21:01:09 +0000  copying file ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2023-10-05 21:01:09 +0000  924 bytes for ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2023-10-05 21:01:09 +0000  copying file ./LaunchScreen.storyboardc/Info.plist ... 
+2023-10-05 21:01:09 +0000  258 bytes for ./LaunchScreen.storyboardc/Info.plist
+2023-10-05 21:01:09 +0000  copying file ./FairwayFriends ... 
+2023-10-05 21:01:09 +0000  3751552 bytes for ./FairwayFriends
+2023-10-05 21:01:09 +0000  copying file ./Frameworks/hermes.framework/_CodeSignature/CodeResources ... 
+2023-10-05 21:01:09 +0000  1798 bytes for ./Frameworks/hermes.framework/_CodeSignature/CodeResources
+2023-10-05 21:01:09 +0000  copying file ./Frameworks/hermes.framework/hermes ... 
+2023-10-05 21:01:10 +0000  508276416 bytes for ./Frameworks/hermes.framework/hermes
+copying file ./Frameworks/hermes.framework/Info.plist ... 
+2023-10-05 21:01:10 +0000  815 bytes for ./Frameworks/hermes.framework/Info.plist
+2023-10-05 21:01:10 +0000  copying file ./SimpleLineIcons.ttf ... 
+2023-10-05 21:01:10 +0000  54056 bytes for ./SimpleLineIcons.ttf
+copying file ./embedded.mobileprovision ... 
+2023-10-05 21:01:10 +0000  14531 bytes for ./embedded.mobileprovision
+2023-10-05 21:01:10 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png ... 
+2023-10-05 21:01:10 +0000  761 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png
+2023-10-05 21:01:10 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png ... 
+2023-10-05 21:01:10 +0000  405 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png
+2023-10-05 21:01:10 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon.png ... 
+2023-10-05 21:01:10 +0000  290 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon.png
+2023-10-05 21:01:10 +0000  copying file ./assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png ... 
+2023-10-05 21:01:10 +0000  913 bytes for ./assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png
+2023-10-05 21:01:10 +0000  copying file ./assets/node_modules/react-native-paper/src/assets/back-chevron.png ... 
+2023-10-05 21:01:10 +0000  489 bytes for ./assets/node_modules/react-native-paper/src/assets/back-chevron.png
+2023-10-05 21:01:10 +0000  copying file ./assets/Assets/GolfCourse.png ... 
+2023-10-05 21:01:10 +0000  829283 bytes for ./assets/Assets/GolfCourse.png
+copying file ./assets/Assets/gettyimages-152128198-1024x1024.jpg ... 
+2023-10-05 21:01:10 +0000  99225 bytes for ./assets/Assets/gettyimages-152128198-1024x1024.jpg
+2023-10-05 21:01:10 +0000  copying file ./Info.plist ... 
+2023-10-05 21:01:10 +0000  1594 bytes for ./Info.plist
+2023-10-05 21:01:10 +0000  copying file ./PkgInfo ... 
+2023-10-05 21:01:10 +0000  8 bytes for ./PkgInfo
+2023-10-05 21:01:10 +0000  copying file ./MaterialIcons.ttf ... 
+2023-10-05 21:01:10 +0000  230384 bytes for ./MaterialIcons.ttf
+2023-10-05 21:01:10 +0000  /usr/bin/ditto exited with 0
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionEmbedProfileStep
+2023-10-05 21:01:10 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000346d2b80; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000ca84d90:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e4d70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005652040; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='(null)', teamID='3R2UF4T4H4', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600034695d40:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionInfoPlistStep
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2023-10-05 21:01:10 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework/hermes' '-r' '-keep_cs' '-o' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework/hermes'
+2023-10-05 21:01:10 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionSymbolsStep
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionAppThinningStep
+2023-10-05 21:01:10 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionArchThinningStep
+2023-10-05 21:01:10 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework/hermes' '-verify_arch' 'arm64e'
+2023-10-05 21:01:10 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-10-05 21:01:10 +0000  Skipping architecture thinning for item "hermes" because arch "arm64e" wasn't found
+2023-10-05 21:01:10 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/FairwayFriends' '-verify_arch' 'arm64e'
+2023-10-05 21:01:10 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-10-05 21:01:10 +0000  Skipping architecture thinning for item "FairwayFriends" because arch "arm64e" wasn't found
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionODRStep
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionStripXattrsStep
+2023-10-05 21:01:10 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x6000346d2b80; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000ca84d90:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e4d70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005652040; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='(null)', teamID='3R2UF4T4H4', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600034695d40:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>
+2023-10-05 21:01:10 +0000  Running /usr/bin/xattr '-crs' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app'
+2023-10-05 21:01:10 +0000  /usr/bin/xattr exited with 0
+2023-10-05 21:01:10 +0000  Processing step: IDEDistributionCodesignStep
+2023-10-05 21:01:10 +0000  Entitlements for <IDEDistributionItem: 0x6000346d2b80; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000ca84d90:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e4d70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001698fc0; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='(null)', teamID='3R2UF4T4H4', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600034695d40:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>: {
+}
+2023-10-05 21:01:10 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2023-10-05 21:01:10 +0000  Entitlements for <IDEDistributionItem: 0x6000346d2b80; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000ca84d90:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e4d70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005652040; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='(null)', teamID='3R2UF4T4H4', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600034695d40:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> are: {
+}
+2023-10-05 21:01:10 +0000  Writing entitlements for <IDEDistributionItem: 0x6000346d2b80; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000ca84d90:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e4d70; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600005653300; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='(null)', teamID='3R2UF4T4H4', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x600034695d40:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> to: /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/entitlements~~~pmQZ7B
+2023-10-05 21:01:10 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '5419F0517D568CA9E29D751A5931C8D1056EBC96' '--entitlements' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/entitlements~~~pmQZ7B' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework'
+2023-10-05 21:01:10 +0000  /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework: replacing existing signature
+2023-10-05 21:01:15 +0000  /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework: signed bundle with Mach-O thin (arm64) [dev.hermesengine.iphoneos]
+2023-10-05 21:01:15 +0000  /usr/bin/codesign exited with 0
+2023-10-05 21:01:15 +0000  Entitlements for <IDEDistributionItem: 0x6000346d3420; bundleID='org.reactjs.native.example.FairwayFriends', path='<DVTFilePath:0x60000ca824c0:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e56d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001939c80; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='{
+    "application-identifier" = "3R2UF4T4H4.org.reactjs.native.example.FairwayFriends";
+    "com.apple.developer.team-identifier" = 3R2UF4T4H4;
+    "get-task-allow" = 1;
+}', teamID='3R2UF4T4H4', identifier='org.reactjs.native.example.FairwayFriends', executablePath='<DVTFilePath:0x60000cad6a70:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/FairwayFriends'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "3R2UF4T4H4.org.reactjs.native.example.FairwayFriends";
+    "com.apple.developer.team-identifier" = 3R2UF4T4H4;
+    "get-task-allow" = 0;
+}
+2023-10-05 21:01:15 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2023-10-05 21:01:15 +0000  Entitlements for <IDEDistributionItem: 0x6000346d3420; bundleID='org.reactjs.native.example.FairwayFriends', path='<DVTFilePath:0x60000ca824c0:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e56d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000016df840; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='{
+    "application-identifier" = "3R2UF4T4H4.org.reactjs.native.example.FairwayFriends";
+    "com.apple.developer.team-identifier" = 3R2UF4T4H4;
+    "get-task-allow" = 1;
+}', teamID='3R2UF4T4H4', identifier='org.reactjs.native.example.FairwayFriends', executablePath='<DVTFilePath:0x60000cad6a70:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/FairwayFriends'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "3R2UF4T4H4.org.reactjs.native.example.FairwayFriends";
+    "com.apple.developer.team-identifier" = 3R2UF4T4H4;
+    "get-task-allow" = 0;
+}
+2023-10-05 21:01:15 +0000  Writing entitlements for <IDEDistributionItem: 0x6000346d3420; bundleID='org.reactjs.native.example.FairwayFriends', path='<DVTFilePath:0x60000ca824c0:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000100e56d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000193bd80; name='Apple Development: William Strauch (66HZLK7H97)', hash='0EA9714AB59413501C57EEF707C04FD57DA1E1F9', serialNumber='42A1BFF9C198AA4B46A976D9C7AD6121', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-10-05 20:48:46 +0000''>', entitlements='{
+    "application-identifier" = "3R2UF4T4H4.org.reactjs.native.example.FairwayFriends";
+    "com.apple.developer.team-identifier" = 3R2UF4T4H4;
+    "get-task-allow" = 1;
+}', teamID='3R2UF4T4H4', identifier='org.reactjs.native.example.FairwayFriends', executablePath='<DVTFilePath:0x60000cad6a70:'/Users/willstrauch/Library/Developer/Xcode/Archives/2023-10-05/FairwayFriends 10-5-23, 2.00 PM.xcarchive/Products/Applications/FairwayFriends.app/FairwayFriends'>', hardenedRuntime='0'>'> to: /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/entitlements~~~Jypxie
+2023-10-05 21:01:15 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '5419F0517D568CA9E29D751A5931C8D1056EBC96' '--entitlements' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/entitlements~~~Jypxie' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app'
+2023-10-05 21:01:15 +0000  /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app: replacing existing signature
+2023-10-05 21:01:19 +0000  /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app: signed app bundle with Mach-O thin (arm64) [org.reactjs.native.example.FairwayFriends]
+2023-10-05 21:01:19 +0000  /usr/bin/codesign exited with 0
+2023-10-05 21:01:19 +0000  Processing step: IDEDistributionZipODRItemStep
+2023-10-05 21:01:19 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-10-05 21:01:19 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-10-05 21:01:19 +0000  Processing step: IDEDistributionCreateIPAStep
+2023-10-05 21:01:19 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root' '/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Packages/FairwayFriends.ipa'
+2023-10-05 21:01:19 +0000  >>> Copying /var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root 
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/_CodeSignature/CodeResources ... 
+2023-10-05 21:01:19 +0000  10754 bytes for ./Payload/FairwayFriends.app/_CodeSignature/CodeResources
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/Fontisto.ttf ... 
+2023-10-05 21:01:19 +0000  313528 bytes for ./Payload/FairwayFriends.app/Fontisto.ttf
+copying file ./Payload/FairwayFriends.app/Octicons.ttf ... 
+2023-10-05 21:01:19 +0000  49404 bytes for ./Payload/FairwayFriends.app/Octicons.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/Feather.ttf ... 
+2023-10-05 21:01:19 +0000  56228 bytes for ./Payload/FairwayFriends.app/Feather.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/Entypo.ttf ... 
+2023-10-05 21:01:19 +0000  66200 bytes for ./Payload/FairwayFriends.app/Entypo.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/FontAwesome5_Brands.ttf ... 
+2023-10-05 21:01:19 +0000  134040 bytes for ./Payload/FairwayFriends.app/FontAwesome5_Brands.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/MaterialCommunityIcons.ttf ... 
+2023-10-05 21:01:19 +0000  1147844 bytes for ./Payload/FairwayFriends.app/MaterialCommunityIcons.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/AppIcon60x60@2x.png ... 
+2023-10-05 21:01:19 +0000  3038 bytes for ./Payload/FairwayFriends.app/AppIcon60x60@2x.png
+copying file ./Payload/FairwayFriends.app/AntDesign.ttf ... 
+2023-10-05 21:01:19 +0000  70344 bytes for ./Payload/FairwayFriends.app/AntDesign.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/Foundation.ttf ... 
+2023-10-05 21:01:19 +0000  56976 bytes for ./Payload/FairwayFriends.app/Foundation.ttf
+copying file ./Payload/FairwayFriends.app/Ionicons.ttf ... 
+2023-10-05 21:01:19 +0000  247192 bytes for ./Payload/FairwayFriends.app/Ionicons.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/FontAwesome5_Solid.ttf ... 
+2023-10-05 21:01:19 +0000  202744 bytes for ./Payload/FairwayFriends.app/FontAwesome5_Solid.ttf
+copying file ./Payload/FairwayFriends.app/FontAwesome5_Regular.ttf ... 
+2023-10-05 21:01:19 +0000  33736 bytes for ./Payload/FairwayFriends.app/FontAwesome5_Regular.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/AccessibilityResources.bundle/en.lproj/Localizable.strings ... 
+2023-10-05 21:01:19 +0000  518 bytes for ./Payload/FairwayFriends.app/AccessibilityResources.bundle/en.lproj/Localizable.strings
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/AccessibilityResources.bundle/Info.plist ... 
+2023-10-05 21:01:19 +0000  794 bytes for ./Payload/FairwayFriends.app/AccessibilityResources.bundle/Info.plist
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/FontAwesome.ttf ... 
+2023-10-05 21:01:19 +0000  165548 bytes for ./Payload/FairwayFriends.app/FontAwesome.ttf
+copying file ./Payload/FairwayFriends.app/Zocial.ttf ... 
+2023-10-05 21:01:19 +0000  25788 bytes for ./Payload/FairwayFriends.app/Zocial.ttf
+copying file ./Payload/FairwayFriends.app/Assets.car ... 
+2023-10-05 21:01:19 +0000  100840 bytes for ./Payload/FairwayFriends.app/Assets.car
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/EvilIcons.ttf ... 
+2023-10-05 21:01:19 +0000  13456 bytes for ./Payload/FairwayFriends.app/EvilIcons.ttf
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/main.jsbundle ... 
+2023-10-05 21:01:19 +0000  3328035 bytes for ./Payload/FairwayFriends.app/main.jsbundle
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2023-10-05 21:01:19 +0000  3822 bytes for ./Payload/FairwayFriends.app/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+copying file ./Payload/FairwayFriends.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2023-10-05 21:01:19 +0000  924 bytes for ./Payload/FairwayFriends.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+copying file ./Payload/FairwayFriends.app/LaunchScreen.storyboardc/Info.plist ... 
+2023-10-05 21:01:19 +0000  258 bytes for ./Payload/FairwayFriends.app/LaunchScreen.storyboardc/Info.plist
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/FairwayFriends ... 
+2023-10-05 21:01:19 +0000  3751552 bytes for ./Payload/FairwayFriends.app/FairwayFriends
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/Frameworks/hermes.framework/_CodeSignature/CodeResources ... 
+1798 bytes for ./Payload/FairwayFriends.app/Frameworks/hermes.framework/_CodeSignature/CodeResources
+2023-10-05 21:01:19 +0000  copying file ./Payload/FairwayFriends.app/Frameworks/hermes.framework/hermes ... 
+2023-10-05 21:01:20 +0000  3240640 bytes for ./Payload/FairwayFriends.app/Frameworks/hermes.framework/hermes
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/Frameworks/hermes.framework/Info.plist ... 
+2023-10-05 21:01:20 +0000  815 bytes for ./Payload/FairwayFriends.app/Frameworks/hermes.framework/Info.plist
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/SimpleLineIcons.ttf ... 
+2023-10-05 21:01:20 +0000  54056 bytes for ./Payload/FairwayFriends.app/SimpleLineIcons.ttf
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/embedded.mobileprovision ... 
+2023-10-05 21:01:20 +0000  14567 bytes for ./Payload/FairwayFriends.app/embedded.mobileprovision
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png ... 
+2023-10-05 21:01:20 +0000  761 bytes for ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@3x.png
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png ... 
+2023-10-05 21:01:20 +0000  405 bytes for ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon@2x.png
+copying file ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon.png ... 
+2023-10-05 21:01:20 +0000  290 bytes for ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon.png
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png ... 
+2023-10-05 21:01:20 +0000  913 bytes for ./Payload/FairwayFriends.app/assets/node_modules/@react-navigation/elements/src/assets/back-icon-mask.png
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/assets/node_modules/react-native-paper/src/assets/back-chevron.png ... 
+2023-10-05 21:01:20 +0000  489 bytes for ./Payload/FairwayFriends.app/assets/node_modules/react-native-paper/src/assets/back-chevron.png
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/assets/Assets/GolfCourse.png ... 
+2023-10-05 21:01:20 +0000  829283 bytes for ./Payload/FairwayFriends.app/assets/Assets/GolfCourse.png
+copying file ./Payload/FairwayFriends.app/assets/Assets/gettyimages-152128198-1024x1024.jpg ... 
+2023-10-05 21:01:20 +0000  99225 bytes for ./Payload/FairwayFriends.app/assets/Assets/gettyimages-152128198-1024x1024.jpg
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/Info.plist ... 
+2023-10-05 21:01:20 +0000  1594 bytes for ./Payload/FairwayFriends.app/Info.plist
+copying file ./Payload/FairwayFriends.app/PkgInfo ... 
+2023-10-05 21:01:20 +0000  8 bytes for ./Payload/FairwayFriends.app/PkgInfo
+2023-10-05 21:01:20 +0000  copying file ./Payload/FairwayFriends.app/MaterialIcons.ttf ... 
+2023-10-05 21:01:20 +0000  230384 bytes for ./Payload/FairwayFriends.app/MaterialIcons.ttf
+2023-10-05 21:01:20 +0000  /usr/bin/ditto exited with 0
+2023-10-05 21:01:20 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2023-10-05 21:01:20 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2023-10-05 21:01:20 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2023-10-05 21:01:20 +0000  IDEDistributionItem init <DVTFilePath:0x60000ca3b8e0:'/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app/Frameworks/hermes.framework'>
+2023-10-05 21:01:20 +0000  IDEDistributionItem init <DVTFilePath:0x60000caa07e0:'/var/folders/fm/dqf7v9hs1b90dxg01_xrvnp40000gn/T/XcodeDistPipeline.~~~JnEVcG/Root/Payload/FairwayFriends.app'>
+2023-10-05 21:01:20 +0000  Processing step: IDEDistributionCreateManifestStep
