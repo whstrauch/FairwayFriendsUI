@@ -51,11 +51,8 @@ const CreateAccount = () => {
                 username: formState.username,
                 password: formState.pwrd
             }
-    
-            console.log("ACCOUNT CREATED")
-    
+        
             customFetch("create", "POST", body, "").then(resp => {
-                console.log("Response", resp)
                 if (resp.access_token) {
                     setError("")
                     setUser({

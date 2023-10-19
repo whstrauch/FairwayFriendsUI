@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-paper';
 import ImageItem from './ImageItem';
@@ -7,9 +7,7 @@ const ImageCarousel = ({media, ratio}: {media: any, ratio: number}) => {
     const [currIndex, setIndex] = useState(0);
     const [oldIndex, setOldIndex] = useState(0);
     const indexRef = useRef(currIndex);
-    indexRef.current = currIndex;
-
-    
+    indexRef.current = currIndex;    
 
     const onScroll = useCallback((event: { nativeEvent: { layoutMeasurement: { width: any; }; contentOffset: { x: number; }; }; }) => {
         const slideSize = event.nativeEvent.layoutMeasurement.width;
@@ -99,4 +97,6 @@ const styles = StyleSheet.create({
     },
   });
 
-export default ImageCarousel;
+const MemoImageCarousel = memo(ImageCarousel);
+
+export default MemoImageCarousel;

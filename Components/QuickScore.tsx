@@ -22,7 +22,6 @@ const QuickScore = (props: any) => {
     
 
     const handleNextInputFocus = () => {
-        console.log(currRef.current)
         if (showAdvancedStats) {
             if (currRef.current != null && currRef.current + 1 < textInputRefs.current.length && textInputRefs.current[currRef.current + 1] != null) {
                 textInputRefs.current && (textInputRefs.current[currRef.current]?.isFocused() ? puttInputRefs.current[currRef.current]?.focus() : textInputRefs.current[currRef.current + 1]?.focus())
@@ -34,7 +33,6 @@ const QuickScore = (props: any) => {
         }
     };
     const handleLastInputFocus = () => {
-        console.log(currRef.current)
         if (showAdvancedStats) {
             if (currRef.current != null && currRef.current > 0 && textInputRefs.current[currRef.current - 1] != null) {
                 textInputRefs.current && (textInputRefs.current[currRef.current]?.isFocused() ? puttInputRefs.current[currRef.current - 1]?.focus() : textInputRefs.current[currRef.current]?.focus() )
@@ -53,7 +51,7 @@ const QuickScore = (props: any) => {
         <View>
             <View style={{display: 'flex', flexDirection: 'row'}}>
                 <FlatList
-                    scrollEnabled={enableScroll.current}
+                    scrollEnabled={true}
                     ListHeaderComponent={() => 
                         <Hole 
                             hole={{hole_number: "Hole", length: "Yardage",  allocation:"Handicap",  par:"Par"}} 

@@ -66,7 +66,6 @@ const AddUserInfo = ({route, navigation}: Props) => {
             public: !isEnabled
         }
 
-        console.log("Body", body)
         customFetch('user/create', "POST", body, user.jwt).then(res =>
             {navigation.navigate("MainApp")}
         ).catch(err => console.log(err.info))
