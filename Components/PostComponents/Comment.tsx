@@ -8,7 +8,7 @@ import { CommentType } from '../../types';
 
 const Comment = ({ comment, user }: {comment: CommentType, user: any}) => {
     const navigation = useNavigation();
-    const {isLoading, data: profPic} = useSWR(() => `http://${API_URL}:5000/user/profile_pic/` + user?.profile_pic, fetch)
+    const {isLoading, data: profPic} = useSWR(() => `https://${API_URL}/user/profile_pic/` + user?.profile_pic, fetch)
     // Data needed: ProfPic, FirstName/LastName, created_at, comment
 
     const timestampFormat = (timestamp: string) => {

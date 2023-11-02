@@ -13,7 +13,7 @@ const UserRow = ({user, type, timestamp}: UserType) => {
     const navigation = useNavigation<NativeStackNavigationProp<AccountStackNavigation>>() 
     const [followingStatus, setFollowingStatus] = useState<string>(user?.is_following || "new")
     const {user: user2} = useAuth()
-    const {isLoading, data: profPic} = useSWR(() => `http://${API_URL}:5000/user/profile_pic/` + user.profile_pic, fetch)
+    const {isLoading, data: profPic} = useSWR(() => `https://${API_URL}/user/profile_pic/` + user.profile_pic, fetch)
 
     const goToProfile = () => {
         if (type !== 'add' && user.user_id !== undefined) {

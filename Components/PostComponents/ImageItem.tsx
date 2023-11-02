@@ -20,7 +20,7 @@ const ImageItem = ({item, ratio} : Props)  => {
     // height / width * screen width to get height
     const height = ratio * width
 
-    const {isLoading, data} = useSWR(() => `http://${API_URL}:5000/post/media/` + item.path, fetch)
+    const {isLoading, data} = useSWR(() => `https://${API_URL}/post/media/` + item.path, fetch)
 
     return (
         <View style={{justifyContent: 'flex-start', width: width, backgroundColor: '#f0f0f0'}}>

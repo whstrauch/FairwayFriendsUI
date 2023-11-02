@@ -23,7 +23,10 @@ const LoginEntry = () => {
             user_id: data.user.user_id
         }))
         .then(data => navigation.navigate('MainApp'))
-        .catch(error => setError(true))
+        .catch(error => {
+            setError(true)
+            console.log(error.message)
+        })
         // This error could also be that the network is down so need to handle.
     }
 

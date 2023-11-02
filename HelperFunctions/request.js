@@ -14,7 +14,7 @@ const customFetch = (path, method="GET", data, token="") => {
         options.body = JSON.stringify(data)
     }
 
-    return fetch(`http://${API_URL}:5000/${path}`, options)
+    return fetch(`https://${API_URL}/${path}`, options)
         .then(resp =>  {
             if (!resp.ok) {
                 const error = new Error("Error1")

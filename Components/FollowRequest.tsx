@@ -13,7 +13,7 @@ type props = {
 
 const FollowRequest = ({sourceId}: props) => {
     const {user} = useAuth()
-    const {isLoading, data, mutate} = useSWR(`http://${API_URL}:5000/user/relationship/` + Number(sourceId))
+    const {isLoading, data, mutate} = useSWR(`https://${API_URL}/user/relationship/` + Number(sourceId))
 
 
     return (

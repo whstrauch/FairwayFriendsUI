@@ -26,7 +26,7 @@ const Account = ({route, navigation} : Props) => {
     const { isLoading, error, user: fetchedUser, mutate } = useUser(id, user.jwt)
     // const { isLoading: isLoading2, data: isFollowing } = useSWR(() => [`/user/isfollowing/${fetchedUser.user_id}/${user.user_id}`, user.jwt] , ([url, token]) => customFetch(url, "GET", undefined, token))
     // Adjust to fetch image from blob storage. Will be much easier, just fetch from url.
-    const {isLoading: profilePictureLoading, data: profPic} = useSWR(() => `http://${API_URL}:5000/user/profile_pic/` + fetchedUser.profile_pic, fetch)
+    const {isLoading: profilePictureLoading, data: profPic} = useSWR(() => `https://${API_URL}/user/profile_pic/` + fetchedUser.profile_pic, fetch)
     const {isLoading: feedLoading, data: posts, mutate: userPostsMutate} = useFetch(`post/user/${id}`, "GET", undefined, user.jwt)
     const [status, setStatus] = useState("new")
 

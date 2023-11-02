@@ -12,7 +12,7 @@ const InteractionBar = ({postId, likeCount, commentCount, navigation}: any ) => 
 
     const {user} = useAuth()
     // Fetch like and comment lengths Add new route.
-    const {isLoading, data, mutate: likeMutate} = useSWR(() => `http://${API_URL}:5000/like/${postId}/${user.user_id}`, fetch)
+    const {isLoading, data, mutate: likeMutate} = useSWR(() => `https://${API_URL}/like/${postId}/${user.user_id}`, fetch)
 
 
     // Have state that is liked length and comment length. Then can update easily

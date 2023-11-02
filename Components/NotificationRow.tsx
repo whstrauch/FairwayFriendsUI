@@ -8,8 +8,8 @@ import { UserRow } from './PostComponents/UserRow';
 
 const NotificationRow = ({item, navigation}: any) => {
     const {user} = useAuth()
-    const {isLoading, data: postPic} = useSWR(() => `http://${API_URL}:5000/post/media/` + item.post.media[0].path, fetch)
-    const {isLoading: isLoading2, data: profPic} = useSWR(() => `http://${API_URL}:5000/user/profile_pic/` + item.user.profile_pic, fetch)
+    const {isLoading, data: postPic} = useSWR(() => `https://${API_URL}/post/media/` + item.post.media[0].path, fetch)
+    const {isLoading: isLoading2, data: profPic} = useSWR(() => `https://${API_URL}/user/profile_pic/` + item.user.profile_pic, fetch)
 
 
     return (

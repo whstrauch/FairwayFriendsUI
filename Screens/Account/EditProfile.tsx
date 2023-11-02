@@ -54,7 +54,7 @@ const EditProfile = ({route, navigation}: Props) => {
                 },
                 body: data
             }
-            await fetch(`http://${API_URL}:5000/user/profile_pic`, options).then(res => 
+            await fetch(`https://${API_URL}/user/profile_pic`, options).then(res => 
                 updated = true
             ).catch(err => console.log("Prof pic update", err))
         }
@@ -99,9 +99,9 @@ const EditProfile = ({route, navigation}: Props) => {
         <KeyboardAvoidingView style={{flex: 1}} behavior='padding'>
             <View style={styles.container}>
             <View style={styles.sectionContainer}>
-                {updatedProfPic === undefined ? profPic === undefined ? <Icon name='accout-person-outline'/> : <Image source={profPic} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/> : <Image source={{uri: updatedProfPic.uri}} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/>}
+                {updatedProfPic === undefined ? profPic === undefined || !profPic.ok ? <Icon name='person-circle' size={100} color="#c2c2c2"/> : <Image source={profPic} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/> : <Image source={{uri: updatedProfPic.uri}} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/>}
                 <Pressable onPress={() => imageSelector()} style={{marginTop: 10}}>
-                    <Text style={styles.editPicture}>Edit Profile Picture</Text>
+                    <Text style={styles.editPicture}>{profPic === undefined || !profPic.ok ? "Add" : "Edit"} Profile Picture</Text>
                 </Pressable>
             </View>
             {rows.map(val => 

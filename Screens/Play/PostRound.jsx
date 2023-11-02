@@ -136,7 +136,7 @@ const PostRound = ({route, navigation}) => {
             body: data
         }
 
-        fetch(`http://${API_URL}:5000/post`, options)
+        fetch(`https://${API_URL}/post`, options)
         .then((res) => {
             if (res.ok) {
                 setLoading(false);

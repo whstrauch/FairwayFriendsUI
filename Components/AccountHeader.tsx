@@ -63,7 +63,7 @@ const AccountHeader = ({user, mainUser, isMain, isFollowing, profPic, mutate} : 
         <View>
             <View style={styles.topContainer}>
                     <View style={styles.leftProfileContainer}>
-                        <Image source={profPic} width={100} height={100} style={{height: 80, width: 80, borderRadius: 40}}/>
+                        {profPic === undefined || !profPic.ok ? <Icon name='person-circle' size={80} color="#c2c2c2" /> : <Image source={profPic} width={100} height={100} style={{height: 80, width: 80, borderRadius: 40}}/>}
                         <View style={{flex: 1, marginLeft: 10, justifyContent: 'center'}}>
                             <Text style={{fontSize: 16}}>{user.name}</Text>
                             <Text style={{color: 'grey'}}>@{user.username}</Text>
