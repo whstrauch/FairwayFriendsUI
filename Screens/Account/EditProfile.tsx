@@ -1,12 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Switch, KeyboardAvoidingView, Image } from 'react-native';
 import  Icon  from 'react-native-vector-icons/Ionicons';
 import { Button } from '../../Components/Button';
-import { IRButton } from '../../Components/IRButton';
 import { useAuth } from '../../Context/UserContext';
-import { useUser } from '../../HelperFunctions/dataHook';
 import customFetch from '../../HelperFunctions/request';
 import { AccountStackNavigation } from '../../types';
 import Toast from 'react-native-simple-toast';
@@ -39,6 +36,7 @@ const EditProfile = ({route, navigation}: Props) => {
     const save = async () => {
         let updated = false
         if (updatedProfPic !== undefined) {
+            // Should resize image
             const data = new FormData()
             data.append("profile_pic", {
                 name: updatedProfPic.fileName,
@@ -54,9 +52,13 @@ const EditProfile = ({route, navigation}: Props) => {
                 },
                 body: data
             }
-            await fetch(`https://${API_URL}/user/profile_pic`, options).then(res => 
-                updated = true
-            ).catch(err => console.log("Prof pic update", err))
+            await fetch(`https://${API_URL}/user/profile_pic`, options).then(res => {
+                if (res.ok) {
+                    updated = true
+                } else {
+                    // Error handling
+                }
+            }).catch(err => console.log("Prof pic update", err))
         }
         if (userValues.Name !== route.params.name || userValues.Username !== route.params.username || userValues.Bio !== route.params.bio || userValues.public !== route.params.public || updated) {
             const body = {
@@ -83,7 +85,7 @@ const EditProfile = ({route, navigation}: Props) => {
 
     const imageSelector = async () => {
 
-        const result = await launchImageLibrary({mediaType: 'photo', selectionLimit: 1, includeExtra: true})
+        const result = await launchImageLibrary({mediaType: 'photo', selectionLimit: 1, includeExtra: true, maxWidth: 150, maxHeight: 150})
         if (result.errorCode) {
             throw Error(result.errorMessage)
         }
@@ -98,37 +100,37 @@ const EditProfile = ({route, navigation}: Props) => {
     return (
         <KeyboardAvoidingView style={{flex: 1}} behavior='padding'>
             <View style={styles.container}>
-            <View style={styles.sectionContainer}>
-                {updatedProfPic === undefined ? profPic === undefined || !profPic.ok ? <Icon name='person-circle' size={100} color="#c2c2c2"/> : <Image source={profPic} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/> : <Image source={{uri: updatedProfPic.uri}} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/>}
-                <Pressable onPress={() => imageSelector()} style={{marginTop: 10}}>
-                    <Text style={styles.editPicture}>{profPic === undefined || !profPic.ok ? "Add" : "Edit"} Profile Picture</Text>
-                </Pressable>
-            </View>
-            {rows.map(val => 
-            <View style={styles.sectionContainer} key={val}>
-                <Text style={{alignSelf: 'flex-start', marginLeft: 10}}>{val}:</Text>
-                <TextInput
-                    value={userValues[val]}
-                    onChangeText={(text) => onChange(text, val)}
-                    style={styles.textContainer}
-                />
-            </View>
-            )}
-            <View style={styles.accountType}>
-                <Icon name={!userValues.public ? 'lock-closed-outline' : 'lock-open-outline'} size={22}/>
-                <Text>Private Account:</Text>
-                <Switch
-                    trackColor={{false: 'white', true: '#006B54'}}
-                    thumbColor={'white'}
-                    onValueChange={(bool) => onChange(!bool, "public")}
-                    value={!userValues.public}
-                    style={{marginLeft: 'auto', transform: [{ scaleX: .8 }, { scaleY: .8 }] }}
-                />
-            </View>
-            <View style={styles.buttonContainer}>
-                <Button type="cancel" style = {styles.button} text="Cancel" onPress={() => navigation.goBack()}/>
-                <Button type="main" style = {styles.button} text="Save" onPress={() => save()}/>
-            </View>
+                <View style={styles.sectionContainer}>
+                    {updatedProfPic === undefined ? profPic === undefined || !profPic.ok ? <Icon name='person-circle' size={100} color="#c2c2c2"/> : <Image source={profPic} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/> : <Image source={{uri: updatedProfPic.uri}} width={200} height={200} style={{width: 100, height: 100, borderRadius: 50}}/>}
+                    <Pressable onPress={() => imageSelector()} style={{marginTop: 10}}>
+                        <Text style={styles.editPicture}>{profPic === undefined || !profPic.ok ? "Add" : "Edit"} Profile Picture</Text>
+                    </Pressable>
+                </View>
+                {rows.map(val => 
+                <View style={styles.sectionContainer} key={val}>
+                    <Text style={{alignSelf: 'flex-start', marginLeft: 10}}>{val}:</Text>
+                    <TextInput
+                        value={userValues[val]}
+                        onChangeText={(text) => onChange(text, val)}
+                        style={styles.textContainer}
+                    />
+                </View>
+                )}
+                <View style={styles.accountType}>
+                    <Icon name={!userValues.public ? 'lock-closed-outline' : 'lock-open-outline'} size={22}/>
+                    <Text>Private Account:</Text>
+                    <Switch
+                        trackColor={{false: 'white', true: '#006B54'}}
+                        thumbColor={'white'}
+                        onValueChange={(bool) => onChange(!bool, "public")}
+                        value={!userValues.public}
+                        style={{marginLeft: 'auto', transform: [{ scaleX: .8 }, { scaleY: .8 }] }}
+                    />
+                </View>
+                <View style={styles.buttonContainer}>
+                    <Button type="cancel" style = {styles.button} text="Cancel" onPress={() => navigation.goBack()}/>
+                    <Button type="main" style = {styles.button} text="Save" onPress={() => save()}/>
+                </View>
             </View>
         </KeyboardAvoidingView>
     );

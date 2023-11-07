@@ -57,7 +57,7 @@ const PostRound = ({route, navigation}) => {
 
     const imageSelector = async () => {
 
-        const result = await launchImageLibrary({mediaType: 'mixed', selectionLimit: 10, includeExtra: true})
+        const result = await launchImageLibrary({mediaType: 'mixed', selectionLimit: 10, includeExtra: true, maxWidth: 450, maxHeight: 650})
         if (result.errorCode) {
             throw Error(result.errorMessage)
         }
@@ -225,7 +225,6 @@ const PostRound = ({route, navigation}) => {
                 <Divider horizontalInset={true} style={{marginVertical: 10}} />
                 
                 <Button type='main' text='Post Round' onPress={() => post()} style={{width: '50%', alignSelf: 'center', padding: 10, marginBottom: 10}}/>
-                
             </KeyboardAwareScrollView>
             {loading && <Loading/>}
         </SafeAreaView>
